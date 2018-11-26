@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models ="clr-namespace:PWSSchduler.Model"
+             xmlns:views ="clr-namespace:PWSSchduler.Views"
+             x:Class="PWSSchduler.MasterPage"
+             Title="Home"
+             >
+    <ContentPage.Content>
+        <ListView x:FieldModifier="Public" x:Name="ListViewPageLinks">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type models:MasterPageItem }">
+                    <!--Font Awesome Solid-->
+                    <models:MasterPageItem Title="Home" IconSource="&#xf015;" ContentPageItem="{x:Type views:HomePage}"/>
+                    <models:MasterPageItem Title="Profile" IconSource="&#xf007;" ContentPageItem="{x:Type views:ProfilePage}"/>
+                </x:Array>
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".5*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Margin="5,0,0,0" Grid.Column="0" Text="{Binding IconSource}" VerticalTextAlignment="Center" FontSize="24">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String"
+                                     Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
+                                        iOS="Font Awesome 5 Free"/>
+                                </Label.FontFamily>
+                            </Label>
+                            
+                            <Label Grid.Column="1" Text="{Binding Title}" FontSize="24" HorizontalOptions="Start"></Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

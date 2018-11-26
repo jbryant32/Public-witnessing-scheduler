@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behavior ="clr-namespace:PWSSchduler.Behaviors"
+             x:Class="PWSSchduler.LoginPage"
+             Title="Login"
+             BackgroundColor="White"
+             >
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="SkyBlue">
+                <Label Margin="0,10,0,0"  TextColor="White" FontSize="32" HorizontalTextAlignment="Center" Text="Welcome !"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Padding="20,0,20,0">
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label TextColor="White" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" x:Name="LabelEmail" Text="&#xf2b6;" VerticalOptions="FillAndExpand" HorizontalOptions="Fill"  BackgroundColor="SkyBlue" WidthRequest="100" MinimumWidthRequest="100" >
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String"
+                                     Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
+                                        iOS="Font Awesome 5 Free"/>
+                            </Label.FontFamily>
+                        </Label>
+ 
+                        <Entry Placeholder="Email" Grid.Column="1" x:Name="EntryEmail" Keyboard="Email"  HorizontalOptions="Fill"    TextColor="Black" PlaceholderColor="Gray" IsSpellCheckEnabled="False">
+                            <Entry.Behaviors>
+                                <behavior:ValidateEmail/>
+                            </Entry.Behaviors>
+                        </Entry>
+                    </Grid>
+                </StackLayout>
+                <StackLayout  >
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label TextColor="White" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" x:Name="LabelPassword" Text="&#xf084;" VerticalOptions="FillAndExpand"  HorizontalOptions="Start"   BackgroundColor="SkyBlue" WidthRequest="100" MinimumWidthRequest="100" >
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String"
+                                     Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
+                                        iOS="Font Awesome 5 Free"/>
+                            </Label.FontFamily>
+                        </Label>
+ 
+                        <Entry Placeholder="Password" 
+                           Grid.Column="1" 
+                           x:Name="EntryPassword" 
+                           Keyboard="Text"  
+                           HorizontalOptions="Fill" 
+                         TextColor="Black"
+                           PlaceholderColor="Gray"
+                              IsPassword="True"
+                               IsSpellCheckEnabled="False"
+                           >
+
+                        </Entry>
+                    </Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Button TextColor="White" BackgroundColor="SkyBlue" Clicked="Button_Clicked" Text="Login" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand">
+                    </Button>
+                </StackLayout>
+            </StackLayout>
+            
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
