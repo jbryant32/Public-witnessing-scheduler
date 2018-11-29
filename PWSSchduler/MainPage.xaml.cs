@@ -15,7 +15,7 @@ namespace PWSSchduler
             InitializeComponent();
             this.MasterPageInstance.ListViewPageLinks.ItemSelected += ListViewPageLinks_ItemSelected;
         }
-
+      
         private void ListViewPageLinks_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var Item = e.SelectedItem as MasterPageItem;

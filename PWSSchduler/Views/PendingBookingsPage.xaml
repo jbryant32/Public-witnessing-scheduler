@@ -2,13 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PWSSchduler.Views.PendingBookingsPage"
-            xmlns:models ="clr-namespace:PWSSchduler.Model"
-            BackgroundColor="White">
+             xmlns:viewModels ="clr-namespace:PWSSchduler.ViewModels"
+             xmlns:models ="clr-namespace:PWSSchduler.Model"
+    Title="Pending Bookings"
+             BackgroundColor="White">
+    <ContentPage.BindingContext>
+        <viewModels:PendingBookingViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <ListView HasUnevenRows="True" BackgroundColor="White" x:Name="ListViewPendingBookings" ItemSelected="ListViewPendingBookings_ItemSelected">
             <ListView.Header>
                 <StackLayout  Padding="0,10,0,0" >
-                   
                     <Label  Text="&#xf02d;" Style="{x:StaticResource Key=LabelHeaderIcon}"  >
                         <Label.FontFamily>
                             <OnPlatform x:TypeArguments="x:String"
@@ -27,7 +31,7 @@
                     <models:Booking Email="jane.doe" ScheduledStartTime="8:00" ScheduledEndTime="9:00"/>
                 </x:Array>
             </ListView.ItemsSource>
-            
+
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

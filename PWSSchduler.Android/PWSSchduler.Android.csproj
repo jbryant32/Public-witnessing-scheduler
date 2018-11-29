@@ -52,7 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.5.231</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2.1" />
@@ -98,6 +101,10 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\FormValidation\FormValidation.csproj">
+      <Project>{1ef1ddfb-b868-4bc2-bd29-ab028c2f5d35}</Project>
+      <Name>FormValidation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PWSSchduler\PWSSchduler.csproj">
       <Project>{26661683-C7C7-497F-AF85-91BA2BA161D6}</Project>
       <Name>PWSSchduler</Name>

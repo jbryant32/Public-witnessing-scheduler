@@ -13,6 +13,7 @@ namespace PWSSchduler.ViewModels
         public string KingdomHall { get; set; }
 
         public TimeSpan RequestedTime { get; set; }
+        public DateTime MinimumDate => DateTime.Today;
         DateTime _DayMonth;
         public DateTime DayMonth { get; set; }
         public string Notes { get; set; }

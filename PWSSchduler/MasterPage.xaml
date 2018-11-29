@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models ="clr-namespace:PWSSchduler.Model"
              xmlns:views ="clr-namespace:PWSSchduler.Views"
+             xmlns:local="clr-namespace:PWSSchduler"
              x:Class="PWSSchduler.MasterPage"
              Title="Home"
              >
@@ -13,6 +14,7 @@
                     <!--Font Awesome Solid-->
                     <models:MasterPageItem Title="Home" IconSource="&#xf015;" ContentPageItem="{x:Type views:HomePage}"/>
                     <models:MasterPageItem Title="Profile" IconSource="&#xf007;" ContentPageItem="{x:Type views:ProfilePage}"/>
+                    <models:MasterPageItem Title="Logout" IconSource="&#xf52b;" ContentPageItem="{x:Type views:LogOut }"/>
                 </x:Array>
             </ListView.ItemsSource>
             <ListView.ItemTemplate>

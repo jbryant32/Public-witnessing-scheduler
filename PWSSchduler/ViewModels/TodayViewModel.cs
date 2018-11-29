@@ -39,8 +39,9 @@ namespace PWSSchduler.ViewModels
         {
             await Task.Run(() => Thread.Sleep(2000));
           
-            foreach (var booking in await DataStore.GetBookings())
+            foreach (var booking in await DataStore.FetchBookings())
             {
+                if(DateTime.Today.ToString() == booking.ScheduledDate)
                 Bookings.Add(booking);
             }
             this.ShowBusyIndicator = false;

@@ -15,6 +15,7 @@ namespace PWSSchduler.Views
 		public ProfilePage ()
 		{
 			InitializeComponent ();
-		}
+         
+        }
 	}
 }

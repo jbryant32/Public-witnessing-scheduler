@@ -16,6 +16,7 @@ namespace PWSSchduler.Views
 		public HomePage ()
 		{
 			InitializeComponent ();
+          
 		}
 
         private async void ButtonToday_Clicked(object sender, EventArgs e)
