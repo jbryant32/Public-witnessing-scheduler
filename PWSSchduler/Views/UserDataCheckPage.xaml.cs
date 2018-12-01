@@ -20,12 +20,12 @@ namespace PWSSchduler.Views
 		}
         protected async override void OnAppearing()
         {
-            DataStore.OpenDBConnection();
-            await DataStore.CreateLocalStore();
-            await DataStore.SetUsersData();
-            await DataStore.GetLocalBookings();
+            //DataStore.OpenDBConnection();
+            //await DataStore.CreateLocalStore();
+            //await DataStore.SetUsersData();
+            //await DataStore.GetLocalBookings();
             await Task.Run(() => { Thread.Sleep(1000); });
-            Application.Current.MainPage = new MainPage();
+            Application.Current.MainPage =  new MainPage();
 
             base.OnAppearing();
         }

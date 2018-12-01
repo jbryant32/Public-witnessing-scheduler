@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -20,11 +21,23 @@ namespace PWSSchduler.Views
 		{
 			InitializeComponent ();
 		}
+
         protected async override void OnAppearing()
         {
             await this.viewModel.SimulateHttpGet();
        
             base.OnAppearing();
         }
+
+        private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var SelectedItem = (e.SelectedItem as Booking);
+            var List= sender as ListView;
+            await Navigation.PushAsync(new BookingItemDetailPage(SelectedItem),true);
+        }
+
+       
+
+      
     }
 }

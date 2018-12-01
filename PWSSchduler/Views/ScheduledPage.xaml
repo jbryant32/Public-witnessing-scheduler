@@ -4,66 +4,6 @@
              xmlns:models ="clr-namespace:PWSSchduler.Model"
              x:Class="PWSSchduler.Views.ScheduledPage">
     <ContentPage.Content>
-        <Label Text="Scheduled"></Label>
-        <!--<ListView HasUnevenRows="True" BackgroundColor="White" x:Name="ListViewPendingBookings" ItemSelected="ListViewPendingBookings_ItemSelected">
-            <ListView.Header>
-                <StackLayout  Padding="0,10,0,0" >
-
-                    <Label  Text="&#xf02d;" Style="{x:StaticResource Key=LabelHeaderIcon}"  >
-                        --><!--<Label.FontFamily>
-                            <OnPlatform x:TypeArguments="x:String"
-                                     Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
-                                        iOS="Font Awesome 5 Free"/>
-                        </Label.FontFamily>--><!--
-                    </Label>
-                    <Label Text="Pending Bookings" Style="{x:StaticResource Key=LabelHeaderText}" ></Label>
-                    <BoxView HorizontalOptions="FillAndExpand" BackgroundColor="Gray" HeightRequest="1"/>
-                </StackLayout>
-            </ListView.Header>
-            <ListView.ItemsSource>
-                <x:Array Type="{x:Type models:Booking}">
-                    <models:Booking Email="jane.doe" ScheduledStartTime="8:00" ScheduledEndTime="9:00"/>
-                    <models:Booking Email="jane.doe" ScheduledStartTime="8:00" ScheduledEndTime="9:00"/>
-                    <models:Booking Email="jane.doe" ScheduledStartTime="8:00" ScheduledEndTime="9:00"/>
-                </x:Array>
-            </ListView.ItemsSource>
-
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout >
-
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-
-                                <StackLayout Padding="5,0,5,0" Orientation="Vertical" VerticalOptions="FillAndExpand" Grid.Column="0">
-                                    <Label Text="Location :" TextColor="Gray"></Label>
-                                    <Label Text="Scheduled Time :" TextColor="Gray"></Label>
-                                    <Label Text="Scheduled Date :" TextColor="Gray"></Label>
-                                </StackLayout>
-                                <StackLayout  Padding="5,0,5,0" Orientation="Vertical" Grid.Column="1">
-                                    <Label Text="Unconfirmed" TextColor="Red"></Label>
-                                    <Label Text="Palm Desert Shopping Mall 75321 Hwy 111 Palm Desert Ca 92211" TextColor="Black"></Label>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="08:00am" TextColor="Black"></Label>
-                                        <Label Text="-" TextColor="Black"></Label>
-                                        <Label Text="09:00am" TextColor="Black"></Label>
-                                    </StackLayout>
-                                    <Label Text="11/29/2018" TextColor="Black"></Label>
-                                </StackLayout>
-                                <StackLayout Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="EndAndExpand" BackgroundColor="Yellow"  >
-                                    <BoxView Margin="0" BackgroundColor="Gray" HeightRequest="1" VerticalOptions="End"  />
-                                </StackLayout>
-
-                            </Grid>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>-->
-
+        <Label Text="Coming Soon"></Label>
     </ContentPage.Content>
 </ContentPage>

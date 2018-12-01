@@ -17,8 +17,7 @@ namespace PWSSchduler
 	public partial class LoginPage : ContentPage
     {
         
-        bool _LoginEnabled = false;
-        public bool LoginEnabled { get => _LoginEnabled; set { _LoginEnabled = value; base.OnPropertyChanged(); } }
+       
 
         public LoginPage ()
 		{
@@ -38,11 +37,7 @@ namespace PWSSchduler
 
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            UserLogin.CurrentLoggedInUser = this.EntryEmail.Text;
-            Application.Current.MainPage = new UserDataCheckPage();
-        }
+       
 
        
     }

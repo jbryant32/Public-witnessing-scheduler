@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PWSSchduler.CustomControls.TileButtonControl">
+
+    <ContentView.Content>
+      
+        <Grid  BackgroundColor="Transparent" InputTransparent="True">
+
+            <BoxView x:Name="BoxViewButton"  InputTransparent="True" >
+                <BoxView.Style>
+                    <Style   TargetType="BoxView">
+                        <Setter Property="BackgroundColor" Value="SkyBlue"></Setter>
+                        <Setter Property="MinimumWidthRequest" Value="145"></Setter>
+                        <Setter Property="WidthRequest" Value="145"></Setter>
+                        <Setter Property="MinimumHeightRequest" Value="125"></Setter>
+                        <Setter Property="HeightRequest" Value="125"></Setter>
+                    </Style>
+                </BoxView.Style>
+            </BoxView>
+            <Label TextColor="White" Text="{Binding Icon}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" InputTransparent="True"></Label>
+            <ContentPresenter InputTransparent="True"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

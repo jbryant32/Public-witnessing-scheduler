@@ -21,11 +21,6 @@ namespace PWSSchduler.Views
 
 
 
-        private async void ListViewPendingBookings_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var item = e.SelectedItem as Booking;
-            await DisplayAlert("Set Booking Status", "Please Confirm Booking", "Confirm", "Cancel");
-          
-        }
+       
     }
 }

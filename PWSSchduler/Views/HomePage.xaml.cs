@@ -9,38 +9,44 @@ using Xamarin.Forms.Xaml;
 
 namespace PWSSchduler.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class HomePage : ContentPage
-	{
-         
-		public HomePage ()
-		{
-			InitializeComponent ();
-          
-		}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class HomePage : ContentPage
+    {
 
-        private async void ButtonToday_Clicked(object sender, EventArgs e)
+        public HomePage()
         {
-            TodayPage Today = new TodayPage();
-            await Navigation.PushModalAsync(Today);
+            InitializeComponent();
+
         }
 
-        private async void ButtonPendingApproval_Clicked(object sender, EventArgs e)
+        private void ButtonToday_Clicked(object sender, EventArgs e)
         {
-            PendingBookingsPage pendingBookings = new PendingBookingsPage();
-            await Navigation.PushModalAsync(pendingBookings);
+            
+            var Master = Application.Current.MainPage as MainPage;
+            Master.Detail = new NavigationPage(new TodayPage());
+            Master.IsPresented = false;
+
         }
 
-        private async void ButtonScheduled_Clicked(object sender, EventArgs e)
+        private   void ButtonPendingApproval_Clicked(object sender, EventArgs e)
         {
-            ScheduledPage scheduledPage = new ScheduledPage();
-            await Navigation.PushModalAsync(scheduledPage);
+            var Master = Application.Current.MainPage as MainPage;
+            Master.Detail = new NavigationPage(new PendingBookingsPage());
+            Master.IsPresented = false;
         }
 
-        private async void ButtonSendRequest_Clicked(object sender, EventArgs e)
+        private   void ButtonScheduled_Clicked(object sender, EventArgs e)
         {
-            SendRequestPage sendRequestPage = new SendRequestPage();
-            await Navigation.PushModalAsync(sendRequestPage);
+            var Master = Application.Current.MainPage as MainPage;
+            Master.Detail = new NavigationPage(new ScheduledPage());
+            Master.IsPresented = false;
+        }
+
+        private   void ButtonSendRequest_Clicked(object sender, EventArgs e)
+        {
+            var Master = Application.Current.MainPage as MainPage;
+            Master.Detail = new NavigationPage(new SendRequestPage());
+            Master.IsPresented = false;
         }
     }
 }

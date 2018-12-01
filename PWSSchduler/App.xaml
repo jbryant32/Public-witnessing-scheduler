@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:effects="clr-namespace:PWSSchduler.Droid"
+             xmlns:customControls="clr-namespace:PWSSchduler.CustomControls"
              x:Class="PWSSchduler.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -21,6 +23,30 @@
             </Style>
            
         </ResourceDictionary>
-       
+        <!--<ResourceDictionary  >
+             
+            <ControlTemplate x:Key="HomeButtons">
+                
+                <Grid  BackgroundColor="Transparent" InputTransparent="True">
+
+                    <customControls:BoxViewButton x:Name="BoxViewButton" TapCommand="{TemplateBinding BindingContext.OnButtonClick}" InputTransparent="True" >
+                        <BoxView.Style>
+                            <Style   TargetType="BoxView">
+                                <Setter Property="BackgroundColor" Value="SkyBlue"></Setter>
+                                <Setter Property="MinimumWidthRequest" Value="145"></Setter>
+                                <Setter Property="WidthRequest" Value="145"></Setter>
+                                <Setter Property="MinimumHeightRequest" Value="125"></Setter>
+                                <Setter Property="HeightRequest" Value="125"></Setter>
+                            </Style>
+                        </BoxView.Style>
+                    </customControls:BoxViewButton>
+                    <Label TextColor="White" Text="{x:TemplateBinding BindingContext.Icon}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" InputTransparent="True"></Label>
+                    <ContentPresenter InputTransparent="True"/>
+                    
+                   
+
+                </Grid>
+            </ControlTemplate>
+        </ResourceDictionary>-->
     </Application.Resources>
 </Application>

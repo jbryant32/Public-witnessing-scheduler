@@ -17,12 +17,10 @@ namespace PWSSchduler.Views
         public LogOut()
         {
             InitializeComponent();
-
         }
         protected override void OnAppearing()
         {
             LogoutUser();
-
             base.OnAppearing();
         }
 
