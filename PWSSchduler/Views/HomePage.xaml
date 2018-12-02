@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:styles="clr-namespace:PWSSchduler.Styles"
              xmlns:customControls ="clr-namespace:PWSSchduler.CustomControls"
+             xmlns:viewModel ="clr-namespace:PWSSchduler.ViewModels"
              x:Class="PWSSchduler.Views.HomePage"
              Title="Home"
              BackgroundColor="White"
@@ -10,135 +11,135 @@
     <ContentPage.Resources>
         <Style TargetType="Button">
             <Setter Property="BackgroundColor" Value="SkyBlue"></Setter>
-            <!--<Setter Property="MinimumWidthRequest" Value="145"></Setter>
-            <Setter Property="WidthRequest" Value="145"></Setter>
-            <Setter Property="MinimumHeightRequest" Value="125"></Setter>
-            <Setter Property="HeightRequest" Value="125"></Setter>-->
             <Setter Property="TextColor" Value="White"></Setter>
-            <!--<Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
-            <Setter Property="VerticalOptions" Value="FillAndExpand"></Setter>-->
         </Style>
+
     </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewModel:HomeViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ScrollView HorizontalOptions="Fill" Padding="10" Margin="0">
-            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Fill" >
-                <StackLayout  Orientation="Vertical" HorizontalOptions="Fill" Margin="0,0,0,20">
-                    <Label HorizontalTextAlignment="Center" Text="Public Witnessing Scheduler" LineBreakMode="WordWrap" FontSize="32" TextColor="Gray"></Label>
-                    <BoxView HorizontalOptions="Fill" BackgroundColor="Gray" HeightRequest="1" ></BoxView>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  HeightRequest="125" Margin="0,0,0,20">
-                    <ContentView WidthRequest="145" HeightRequest="125">
-                        <StackLayout >
-                            <RelativeLayout  >
-                                <Button 
+        <ContentView ControlTemplate="{StaticResource Key=HomeView}"  >
+            <ScrollView HorizontalOptions="Fill" Padding="10">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Fill" >
+                    <StackLayout  Orientation="Vertical" HorizontalOptions="Fill" Margin="0,0,0,20">
+                        <Label HorizontalTextAlignment="Center" Text="Public Witnessing Scheduler" LineBreakMode="WordWrap" FontSize="32" TextColor="Gray"></Label>
+                        <BoxView HorizontalOptions="Fill" BackgroundColor="Gray" HeightRequest="1" ></BoxView>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  HeightRequest="125" Margin="0,0,0,20">
+                        <ContentView WidthRequest="145" HeightRequest="125">
+                            <StackLayout >
+                                <RelativeLayout>
+                                    <Button
                                    
                                     RelativeLayout.WidthConstraint="{ConstraintExpression Factor=1,Property=Height,ElementName=ButtonSendRequest}"
                                        RelativeLayout.HeightConstraint="{ConstraintExpression Factor=1,Property=Width,ElementName=ButtonSendRequest}"
                                     HorizontalOptions="FillAndExpand"     x:Name="ButtonToday" Clicked="ButtonToday_Clicked" >
-                                </Button>
-                                <Label   InputTransparent="True"  Margin="0,20,0,20" HorizontalTextAlignment="Center" Text="&#xf185;" Font="42" FontAttributes="Bold" TextColor="White" 
+                                    </Button>
+                                    <Label InputTransparent="True"  Margin="0,20,0,20" HorizontalTextAlignment="Center" Text="&#xf185;" Font="42" FontAttributes="Bold" TextColor="White" 
                                        RelativeLayout.WidthConstraint="{ConstraintExpression Factor=1,Property=Height,ElementName=ButtonSendRequest}">
-                                    <Label.FontFamily>
-                                        <OnPlatform x:TypeArguments="x:String"
-                                     Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
-                                        iOS="Font Awesome 5 Free"/>
-                                    </Label.FontFamily>
-                                </Label>
-                                <Label   InputTransparent="True"  HorizontalTextAlignment="Center" Text="Today" FontAttributes="Bold" TextColor="White" 
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String"
+                                            Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
+                                             iOS="Font Awesome 5 Free"/>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label   InputTransparent="True"  HorizontalTextAlignment="Center" Text="Today" FontAttributes="Bold" TextColor="White" 
                                        RelativeLayout.WidthConstraint="{ConstraintExpression Factor=1,Property=Height,ElementName=ButtonSendRequest}"
                                         RelativeLayout.YConstraint="{ConstraintExpression Factor=0.5,ElementName=ButtonSendRequest,Property=Height}">
-                                </Label>
-                            </RelativeLayout>
-                        </StackLayout>
-                    </ContentView>
-                    <ContentView WidthRequest="145" HeightRequest="125">
-                        <StackLayout >
-                            <RelativeLayout BackgroundColor="Red">
-                                <Button
+                                    </Label>
+                                </RelativeLayout>
+                            </StackLayout>
+                        </ContentView>
+                        <ContentView WidthRequest="145" HeightRequest="125">
+                            <StackLayout >
+                                <RelativeLayout BackgroundColor="Red">
+                                    <Button
                                     RelativeLayout.WidthConstraint="{ConstraintExpression Factor=1,Property=Height,ElementName=ButtonSendRequest}"
                                        RelativeLayout.HeightConstraint="{ConstraintExpression Factor=1,Property=Width,ElementName=ButtonSendRequest}"
                                     HorizontalOptions="FillAndExpand"     x:Name="ButtonPendingApproval" Clicked="ButtonPendingApproval_Clicked" >
-                                </Button>
-                                <Label  
+                                    </Button>
+                                    <Label    
                                       InputTransparent="True"
                                     Margin="0,20,0,20" HorizontalTextAlignment="Center" Text="&#xf017;" Font="42" FontAttributes="Bold" TextColor="White" 
                                        RelativeLayout.WidthConstraint="{ConstraintExpression Factor=1,Property=Height,ElementName=ButtonSendRequest}">
-                                    <Label.FontFamily>
-                                        <OnPlatform x:TypeArguments="x:String"
-                                     Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
-                                        iOS="Font Awesome 5 Free"/>
-
-                                    </Label.FontFamily>
-                                </Label>
-                                <Label 
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String"
+                                            Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
+                                             iOS="Font Awesome 5 Free"/>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label 
                                       InputTransparent="True"
                                     HorizontalTextAlignment="Center" Text="Pending Approval" FontAttributes="Bold" TextColor="White" 
                                        RelativeLayout.WidthConstraint="{ConstraintExpression Factor=1,Property=Height,ElementName=ButtonSendRequest}"
                                         RelativeLayout.YConstraint="{ConstraintExpression Factor=0.5,ElementName=ButtonSendRequest,Property=Height}">
 
 
-                                </Label>
-                            </RelativeLayout>
-                        </StackLayout>
-                    </ContentView>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  HeightRequest="125" Margin="0,0,0,20">
-                    <ContentView WidthRequest="145" HeightRequest="125">
-                        <StackLayout >
-                            <RelativeLayout >
-                                <Button 
+                                    </Label>
+                                </RelativeLayout>
+                            </StackLayout>
+                        </ContentView>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  HeightRequest="125" Margin="0,0,0,20">
+                        <ContentView WidthRequest="145" HeightRequest="125">
+                            <StackLayout >
+                                <RelativeLayout >
+                                    <Button 
                                     RelativeLayout.WidthConstraint="{ConstraintExpression Factor=1,Property=Height,ElementName=ButtonSendRequest}"
                                        RelativeLayout.HeightConstraint="{ConstraintExpression Factor=1,Property=Width,ElementName=ButtonSendRequest}"
                                     HorizontalOptions="FillAndExpand"   x:Name="ButtonScheduled" Clicked="ButtonScheduled_Clicked" >
-                                </Button>
-                                <Label
+                                    </Button>
+                                    <Label 
                                     InputTransparent="True"
                                     Margin="0,20,0,20"  HorizontalTextAlignment="Center" Text="&#xf274;" Font="42" FontAttributes="Bold" TextColor="White" 
                                        RelativeLayout.WidthConstraint="{ConstraintExpression Factor=1,Property=Height,ElementName=ButtonSendRequest}">
-                                    <Label.FontFamily>
-                                        <OnPlatform x:TypeArguments="x:String"
-                                     Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
-                                        iOS="Font Awesome 5 Free"/>
-                                    </Label.FontFamily>
-                                </Label>
-                                <Label 
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String"
+                                            Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
+                                             iOS="Font Awesome 5 Free"/>
+                                        </Label.FontFamily>
+
+                                    </Label>
+                                    <Label 
                                       InputTransparent="True"
                                     HorizontalTextAlignment="Center" Text="Scheduled" FontAttributes="Bold" TextColor="White" 
                                        RelativeLayout.WidthConstraint="{ConstraintExpression Factor=1,Property=Height,ElementName=ButtonSendRequest}"
                                         RelativeLayout.YConstraint="{ConstraintExpression Factor=0.5,ElementName=ButtonSendRequest,Property=Height}">
-                                </Label>
-                            </RelativeLayout>
-                        </StackLayout>
-                    </ContentView>
-                    <ContentView WidthRequest="145" HeightRequest="125">
-                        <StackLayout >
-                            <RelativeLayout>
-                                <Button 
+                                    </Label>
+                                </RelativeLayout>
+                            </StackLayout>
+                        </ContentView>
+                        <ContentView WidthRequest="145" HeightRequest="125">
+                            <StackLayout >
+                                <RelativeLayout>
+                                    <Button 
                                     RelativeLayout.WidthConstraint="{ConstraintExpression Factor=1,Property=Height,ElementName=ButtonSendRequest}"
                                        RelativeLayout.HeightConstraint="{ConstraintExpression Factor=1,Property=Width,ElementName=ButtonSendRequest}"
                                     HorizontalOptions="FillAndExpand"    x:Name="ButtonSendRequest" Clicked="ButtonSendRequest_Clicked" >
-                                </Button>
-                                <Label 
+                                    </Button>
+                                    <Label
                                       InputTransparent="True"
                                     Margin="0,20,0,20"  HorizontalTextAlignment="Center" Text="&#xf2b6;" Font="42" FontAttributes="Bold" TextColor="White" 
                                        RelativeLayout.WidthConstraint="{ConstraintExpression Factor=1,Property=Height,ElementName=ButtonSendRequest}">
-                                    <Label.FontFamily>
-                                        <OnPlatform x:TypeArguments="x:String"
-                                     Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
-                                        iOS="Font Awesome 5 Free"/>
-                                    </Label.FontFamily>
-                                </Label>
-                                <Label 
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String"
+                                            Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
+                                             iOS="Font Awesome 5 Free"/>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label 
                                       InputTransparent="True"
                                     HorizontalTextAlignment="Center" Text="Send Request" FontAttributes="Bold" TextColor="White" 
                                        RelativeLayout.WidthConstraint="{ConstraintExpression Factor=1,Property=Height,ElementName=ButtonSendRequest}"
                                         RelativeLayout.YConstraint="{ConstraintExpression Factor=0.5,ElementName=ButtonSendRequest,Property=Height}">
-                                </Label>
-                            </RelativeLayout>
-                        </StackLayout>
-                    </ContentView>
+                                    </Label>
+                                </RelativeLayout>
+                            </StackLayout>
+                        </ContentView>
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+        </ContentView>
     </ContentPage.Content>
 </ContentPage>

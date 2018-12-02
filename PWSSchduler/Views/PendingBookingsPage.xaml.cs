@@ -16,11 +16,11 @@ namespace PWSSchduler.Views
         public PendingBookingsPage()
         {
             InitializeComponent();
-            
         }
 
-
-
-       
+        private async  void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+           await Navigation.PushAsync( new PendingBookingsDetailPage((e.Item as Booking)),true);
+        }
     }
 }

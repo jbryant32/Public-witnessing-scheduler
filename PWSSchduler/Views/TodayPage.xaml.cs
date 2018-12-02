@@ -29,15 +29,11 @@ namespace PWSSchduler.Views
             base.OnAppearing();
         }
 
-        private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var SelectedItem = (e.SelectedItem as Booking);
-            var List= sender as ListView;
-            await Navigation.PushAsync(new BookingItemDetailPage(SelectedItem),true);
+            var SelectedItem = (e.Item as Booking);
+            var List = sender as ListView;
+            await Navigation.PushAsync(new BookingItemDetailPage(SelectedItem), true);
         }
-
-       
-
-      
     }
 }

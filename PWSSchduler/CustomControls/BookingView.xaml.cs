@@ -14,10 +14,11 @@ namespace PWSSchduler.CustomControls
 	{
         public string Email { get => (string)GetValue(EmailProperty); set => SetValue(EmailProperty, value); }
         public static readonly BindableProperty EmailProperty = BindableProperty.Create(nameof(Email), typeof(string), typeof(BookingView), "");
-        public string ScheduledTime { get => (string)GetValue(ScheduledTimeProperty); set => SetValue(ScheduledTimeProperty, value); }
-        public static readonly BindableProperty ScheduledTimeProperty = BindableProperty.Create(nameof(ScheduledTime), typeof(string), typeof(BookingView), "");
-        public string Location { get => (string)GetValue(LocationProperty); set => SetValue(LocationProperty, value); }
-        public static readonly BindableProperty LocationProperty = BindableProperty.Create(nameof(Location), typeof(string), typeof(BookingView), "");
+        public string ScheduledStartTime { get => (string)GetValue(ScheduledStartTimeProperty); set => SetValue(ScheduledStartTimeProperty, value); }
+        public static readonly BindableProperty ScheduledStartTimeProperty = BindableProperty.Create(nameof(ScheduledStartTime), typeof(string), typeof(BookingView), "");
+        public string LocationName { get => (string)GetValue(LocationNameProperty); set => SetValue(LocationNameProperty, value); }
+        public static readonly BindableProperty LocationNameProperty = BindableProperty.Create(nameof(LocationName), typeof(string), typeof(BookingView), "");
+
         public BookingView()
         {
 			InitializeComponent ();

@@ -11,7 +11,7 @@
         <viewModels:PendingBookingViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ListView BackgroundColor="White" HasUnevenRows="True"  >
+        <ListView BackgroundColor="White" HasUnevenRows="True" ItemTapped="ListView_ItemTapped" SelectionMode="None"  >
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type models:Booking}">
                     <models:Booking BookingType="Cart" Email="Jason.bryant@gmail.com" LocationAddress="184 Paseo Bravo Palm Desert CA 92211" LocationName="El Paseo Shopping Center" ScheduledStartTime="8:00" ScheduledEndTime="9:00"></models:Booking>

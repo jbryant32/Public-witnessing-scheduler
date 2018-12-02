@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PWSSchduler.Views.PendingBookingsDetailPage"
+             xmlns:customControl ="clr-namespace:PWSSchduler.CustomControls"
+             Title="Pending Booking">
+    <ContentPage.Content>
+        <StackLayout>
+            <customControl:BookingDetailView />
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Button BackgroundColor="#71b8ff" TextColor="White" Text="Confirm" HorizontalOptions="FillAndExpand"></Button>
+                <Button  BackgroundColor="#ff6464" TextColor="White" Text="Cancel" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
