@@ -12,6 +12,7 @@ namespace PWSSchduler.CustomControls
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BookingDetailView : ContentView
     {
+       
         public string Email { get => (string)GetValue(EmailProperty); set => SetValue(EmailProperty, value); }
         public static readonly BindableProperty EmailProperty = BindableProperty.Create(nameof(Email), typeof(string), typeof(BookingDetailView), "None");
         public string BookingType { get => (string)GetValue(BookingTypeProperty); set => SetValue(BookingTypeProperty, value); }
@@ -30,9 +31,9 @@ namespace PWSSchduler.CustomControls
         public static readonly BindableProperty ScheduledEndTimeProperty = BindableProperty.Create(nameof(ScheduledStartTime), typeof(string), typeof(BookingDetailView), "");
         public BookingDetailView()
         {
-            this.BindingContext = this;
+          
             InitializeComponent();
-            
+            this.Content.BindingContext = this;
         }
     }
 }

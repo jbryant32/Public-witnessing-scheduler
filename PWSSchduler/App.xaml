@@ -68,7 +68,7 @@
                                 </BoxView.Style>
                             </BoxView>
 
-                            <Label TextColor="White"  Text="3" InputTransparent="True">
+                            <Label TextColor="White"  Text="{x:TemplateBinding Parent.BindingContext.PendingBooks.Length}" InputTransparent="True">
                                 <Label.Style>
                                     <Style TargetType="Label">
                                         <Setter Property="VerticalTextAlignment" Value="Center"/>
@@ -85,18 +85,17 @@
                                     </Style>
                                 </Label.Style>
                             </Label>
-                            <Label Text="12:00am" >
+                            <Label x:Name="LabelCurrentDateTime" Text="{x:TemplateBinding Parent.BindingContext.CurrentDateTime}" >
                                 <Label.Style>
                                     <Style TargetType="Label">
                                         <Setter Property="VerticalTextAlignment" Value="Center"/>
                                         <Setter Property="HorizontalTextAlignment" Value="Start"/>
                                         <Setter Property="FontAttributes" Value="Bold"/>
-                                        <Setter Property="FontSize" Value="36"/>
+                                        <Setter Property="FontSize" Value="32"/>
                                         <Setter Property="TextColor" Value="White"/>
                                         <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=.8}"/>
                                         <Setter Property="RelativeLayout.HeightConstraint" Value="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"/>
                                         <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Type=RelativeToParent,Property=Width, Factor=0}"/>
-
                                     </Style>
                                 </Label.Style>
                             </Label>

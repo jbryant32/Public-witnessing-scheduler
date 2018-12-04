@@ -16,10 +16,10 @@
 
     </ContentPage.Resources>
     <ContentPage.BindingContext>
-        <viewModel:HomeViewModel/>
+        <viewModel:HomeViewModel x:Name="ViewModel"  />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ContentView ControlTemplate="{StaticResource Key=HomeView}"  >
+        <ContentView ControlTemplate="{StaticResource Key=HomeView}" >
             <ScrollView HorizontalOptions="Fill" Padding="10">
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Fill" >
                     <StackLayout  Orientation="Vertical" HorizontalOptions="Fill" Margin="0,0,0,20">

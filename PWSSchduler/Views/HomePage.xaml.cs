@@ -18,7 +18,11 @@ namespace PWSSchduler.Views
             InitializeComponent();
 
         }
-
+        protected async override void OnAppearing()
+        {
+            await this.ViewModel.InitViewModel();
+            base.OnAppearing();
+        }
         private void ButtonToday_Clicked(object sender, EventArgs e)
         {
             

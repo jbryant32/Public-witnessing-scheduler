@@ -8,16 +8,10 @@
     Title="Pending Bookings"
              BackgroundColor="White">
     <ContentPage.BindingContext>
-        <viewModels:PendingBookingViewModel/>
+        <viewModels:PendingBookingViewModel x:Name="ViewModel"/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ListView BackgroundColor="White" HasUnevenRows="True" ItemTapped="ListView_ItemTapped" SelectionMode="None"  >
-            <ListView.ItemsSource>
-                <x:Array Type="{x:Type models:Booking}">
-                    <models:Booking BookingType="Cart" Email="Jason.bryant@gmail.com" LocationAddress="184 Paseo Bravo Palm Desert CA 92211" LocationName="El Paseo Shopping Center" ScheduledStartTime="8:00" ScheduledEndTime="9:00"></models:Booking>
-                    <models:Booking BookingType="Table" Email="Jason.bryant@gmail.com" LocationAddress="75221 HWY 111 Palm Desert CA 92211" LocationName="Palm Desert Shopping Mall" ScheduledStartTime="8:00" ScheduledEndTime="9:00"></models:Booking>
-                </x:Array>
-            </ListView.ItemsSource>
+        <ListView BackgroundColor="White" HasUnevenRows="True" ItemTapped="ListView_ItemTapped" SelectionMode="None" ItemsSource="{Binding Bookings}"  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

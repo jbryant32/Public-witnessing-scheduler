@@ -19,9 +19,10 @@
                         <RowDefinition Height="60"/>
                         <RowDefinition Height="60"/>
                         <RowDefinition Height="60"/>
-                        <RowDefinition/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <StackLayout Orientation="Vertical" Grid.Column="0" Grid.ColumnSpan="2" >
+                    <StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width=".5*"/>
@@ -30,10 +31,10 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50"/>
                             </Grid.RowDefinitions>
-                            <Label Grid.Column="0" Grid.Row="0" TextColor="Gray"  Text="Email:" 
+                            <Label Grid.Column="0" Grid.Row="0" TextColor="Gray"  Text="Booking Status:" 
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Start" />
-                            <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="{Binding Email}"
+                            <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="{Binding Status}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Start" />
                         </Grid>
@@ -51,7 +52,7 @@
                             <Label Grid.Column="0" Grid.Row="0" TextColor="Gray" Text="Booking Type:" 
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Start" />
-                            <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="Cart"
+                            <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="{Binding BookingType}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Start" />
                         </Grid>
@@ -67,10 +68,10 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50"/>
                             </Grid.RowDefinitions>
-                            <Label Grid.Column="0" Grid.Row="0" TextColor="Gray" Text="Location Address:" 
+                            <Label Grid.Column="0" Grid.Row="0" TextColor="Gray"  Text="Email:" 
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Start" />
-                            <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="184 Paseo Bravo Palm Desert CA 92211"
+                            <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="{Binding Email}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Start" />
                         </Grid>
@@ -85,10 +86,10 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50"/>
                             </Grid.RowDefinitions>
-                            <Label Grid.Column="0" Grid.Row="0" TextColor="Gray" Text="Location Name" 
+                            <Label Grid.Column="0" Grid.Row="0" TextColor="Gray" Text="Location Address:" 
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Start" />
-                            <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="El Paseo Shopping Cnter"
+                            <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="{Binding LocationAddress}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Start" />
                         </Grid>
@@ -103,10 +104,10 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50"/>
                             </Grid.RowDefinitions>
-                            <Label Grid.Column="0" Grid.Row="0" TextColor="Gray" Text="Schedule Date" 
+                            <Label Grid.Column="0" Grid.Row="0" TextColor="Gray" Text="Location Name:" 
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Start" />
-                            <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="12/05/18"
+                            <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="{Binding LocationName}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Start" />
                         </Grid>
@@ -121,16 +122,34 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50"/>
                             </Grid.RowDefinitions>
-                            <Label Grid.Column="0" Grid.Row="0" TextColor="Gray" Text="Schedule Start Time" 
+                            <Label Grid.Column="0" Grid.Row="0" TextColor="Gray" Text="Schedule Date:" 
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-                            <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="8:00"
+                HorizontalOptions="Start" />
+                            <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="{Binding ScheduledDate}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="Start" />
                         </Grid>
                         <BoxView HeightRequest="1" BackgroundColor="Gray"/>
                     </StackLayout>
-                    <StackLayout Grid.Row="6" Grid.ColumnSpan="2">
+                    <StackLayout Orientation="Vertical" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".5*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Column="0" Grid.Row="0" TextColor="Gray" Text="Schedule Start Time:" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                            <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="{Binding ScheduledStartTime}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start" />
+                        </Grid>
+                        <BoxView HeightRequest="1" BackgroundColor="Gray"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="7" Grid.ColumnSpan="2">
                         <Label Text="Notes:" TextColor="Gray"/>
                         <Editor  Text="TextBlob is a Python (2 and 3) library for processing textual data. It provides a consistent API for diving into common natural language processing (NLP) tasks such as part-of-speech tagging, noun phrase extraction, sentiment analysis, and more." TextColor="Black"/>
                     </StackLayout>

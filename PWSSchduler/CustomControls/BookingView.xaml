@@ -38,7 +38,6 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
                         <Label TextColor="Gray" Text="Email :"/>
@@ -48,7 +47,7 @@
                         <Label TextColor="Gray" Grid.Column="0" Grid.Row="1" Text="Scheduled Time :"/>
                         <Label Grid.Column="1" Grid.Row="1" Text="{Binding ScheduledStartTime}"/>
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="3">
+                    <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="2">
                         <Label TextColor="Gray" Grid.Column="0" Grid.Row="1" Text="Location Name :" LineBreakMode="NoWrap"/>
                         <Label Grid.Column="1" Grid.Row="1" Text="{Binding LocationName}" LineBreakMode="TailTruncation"/>
                     </StackLayout>
