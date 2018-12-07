@@ -15,7 +15,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <customControls:BookingView/>
+                        <customControls:BookingView Email="{Binding Email}" ScheduledStartTime="{Binding ScheduledStartTime}" LocationName="{Binding LocationName}"/>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:PWSSchduler.CustomControls"
+              xmlns:model ="clr-namespace:PWSSchduler.Model"
+             xmlns:viewModel ="clr-namespace:PWSSchduler.ViewModels"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="PWSSchduler.Views.TodayImageGalleryPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:TodayImageGalleryViewModel x:Name="ViewModel"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <controls:CarouselViewControl
+            ItemsSource="{Binding Source={x:Reference ViewModel},Path=GalleryItem}" 
+            PositionSelected="CarouselViewControl_PositionSelected"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            >
+            <controls:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+                    <ContentView>
+                        <Grid >
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding Source={x:Reference ViewModel},Path=ImageTapped }"  
+                                                  CommandParameter="{Binding ImageSource}"/>
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Image  Aspect="AspectFit"  Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="{Binding ImageSource}" >
+                           
+                            </Image>
+                            <BoxView  Grid.Row="1"  Grid.Column="0" Grid.ColumnSpan="2"  BackgroundColor="Gray" Opacity=".5"   />
+                            <Label   Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontSize="12" TextColor="White"  VerticalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="{Binding Caption}" >
+                            </Label>
+                        </Grid>
+                    </ContentView>
+                </DataTemplate>
+            </controls:CarouselViewControl.ItemTemplate>
+        </controls:CarouselViewControl>
+    </ContentPage.Content>
+
+</ContentPage>

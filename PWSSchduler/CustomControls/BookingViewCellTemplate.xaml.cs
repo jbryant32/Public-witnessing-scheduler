@@ -22,7 +22,7 @@ namespace PWSSchduler.CustomControls
         public BookingView()
         {
 			InitializeComponent ();
-            this.BindingContext = this;
+            
 		}
 	}
 }

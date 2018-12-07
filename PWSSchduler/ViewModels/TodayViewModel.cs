@@ -28,8 +28,11 @@ namespace PWSSchduler.ViewModels
 
          public TodayViewModel()
         {
-            
+            if (Bookings.Count > 0) {
+                Bookings.Clear();
+            }
         }
+
 
         public async Task<Booking[]> LoadBookings()
         {
@@ -37,9 +40,13 @@ namespace PWSSchduler.ViewModels
         }
         public async Task SimulateHttpGet()
         {
+            if (Bookings.Count > 0)
+            {
+                Bookings.Clear();
+            }
             await Task.Run(() => Thread.Sleep(2000));
           
-            foreach (var booking in await DataStore.FetchBookings())
+            foreach (var booking in await DataStore.GetLocalBookings())
             {
                 if(DateTime.Today.ToString() == booking.ScheduledDate)
                 Bookings.Add(booking);

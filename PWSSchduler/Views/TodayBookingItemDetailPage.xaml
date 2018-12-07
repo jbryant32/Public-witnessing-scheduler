@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PWSSchduler.Views.BookingItemDetailPage"
+             xmlns:models="clr-namespace:PWSSchduler.Model"
+             BackgroundColor="White"
+             xmlns:customControls ="clr-namespace:PWSSchduler.CustomControls"
+             Title="Booking Details">
+ 
+    <ContentPage.Content>
+        <customControls:BookingDetailView VerticalOptions="FillAndExpand"  
+                                           
+                                             Status="{Binding Status}" 
+                                             BookingType="{Binding BookingType}" 
+                                             Email="{Binding Email}" 
+                                             LocationAddress="{Binding LocationAddress}" 
+                                             LocationName="{Binding LocationName}" 
+                                             ScheduledDate="{Binding ScheduledDate}"
+                                             ScheduledStartTime="{Binding ScheduledStartTime}"
+                                             Notes="{Binding Notes}"
+                                             PageIsBusy="False"
+                                             ActivityMessage=""
+                                             IndicatorRunning="False"
+                                             >
+            <Button TextColor="White" Text="View Images" HorizontalOptions="FillAndExpand" BackgroundColor="SkyBlue" Clicked="ViewGallery_Button_Clicked"></Button>
+        </customControls:BookingDetailView>
+    </ContentPage.Content>
+</ContentPage>

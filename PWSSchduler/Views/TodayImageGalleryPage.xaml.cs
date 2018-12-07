@@ -10,17 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace PWSSchduler.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ScheduledPage : ContentPage
+	public partial class TodayImageGalleryPage : ContentPage
 	{
-		public ScheduledPage ()
+		public TodayImageGalleryPage ()
 		{
 			InitializeComponent ();
 		}
-        protected override void OnAppearing()
+
+        private void CarouselViewControl_PositionSelected(object sender, CarouselView.FormsPlugin.Abstractions.PositionSelectedEventArgs e)
         {
 
-            this.ViewModel.LoadBookings();
-            base.OnAppearing(); 
         }
     }
 }

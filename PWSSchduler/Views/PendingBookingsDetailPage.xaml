@@ -8,32 +8,31 @@
 
     <ContentPage.Content >
 
-        <StackLayout >
-            <StackLayout HorizontalOptions="FillAndExpand">
-                <ActivityIndicator IsEnabled="{Binding PageBusy}" 
-                               IsRunning="{Binding PageBusy}" 
-                               IsVisible="{Binding PageBusy}"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Center"/>
-                <Label IsVisible="{Binding UpdateSucess}" Text="Status Confirmation Sucsessful" VerticalOptions="Center" HorizontalTextAlignment="Center" TextColor="Black"/>
-                <Label IsVisible="{Binding UpdateFailed}" Text="Status Confirmation Failed"     VerticalOptions="Center"    HorizontalTextAlignment="Center" TextColor="Black"/>
-            </StackLayout>
-            <StackLayout IsVisible="{Binding BookingsDetailViewisVisible}">
-                <StackLayout.Triggers>
-                    <DataTrigger TargetType="StackLayout" Binding="{Binding Source={x:Reference ThisCP},Path=BookingsDetailViewisVisible}" Value="False">
-                        <Setter Property="HeightRequest" Value="0"/>
-                    </DataTrigger>
-                </StackLayout.Triggers>
-                <customControl:BookingDetailView BindingContext="{Binding Path=booking}" Status="{Binding Status}" BookingType="{Binding BookingType}" 
-                                             Email="{Binding Email}" LocationAddress="{Binding LocationAddress}" 
-                                             LocationName="{Binding LocationName}" ScheduledDate="{Binding ScheduleDate}"
-                                             ScheduledStartTime="{Binding ScheduledStartTime}"/>
-                <StackLayout Orientation="Horizontal" Margin="10">
-                    <Button x:Name="ButtonConfirmed" BackgroundColor="#71b8ff" TextColor="White" Text="Confirm" HorizontalOptions="FillAndExpand" Clicked="ButtonConfirmed_Clicked"></Button>
-                    <Button x:Name="ButtonCanceled" BackgroundColor="#ff6464" TextColor="White" Text="Cancel" HorizontalOptions="FillAndExpand" Clicked="ButtonConfirmed_Clicked"></Button>
+        <StackLayout VerticalOptions="FillAndExpand" >
+            
+            <customControl:BookingDetailView BindingContext="{x:Reference ThisCP}" VerticalOptions="FillAndExpand"  
+                                             Status="{Binding booking.Status}" 
+                                             BookingType="{Binding booking.BookingType}" 
+                                             Email="{Binding booking.Email}" 
+                                             LocationAddress="{Binding booking.LocationAddress}" 
+                                             LocationName="{Binding booking.LocationName}" 
+                                             ScheduledDate="{Binding booking.ScheduledDate}"
+                                             ScheduledStartTime="{Binding booking.ScheduledStartTime}"
+                                             Notes="{Binding booking.Notes}"
+                                             PageIsBusy="{Binding PageBusy}"
+                                             ActivityMessage="{Binding IsBusyMessage}"
+                                             IndicatorRunning="{Binding IndicatorRunning}"
+                                             >
+              
+                
+                <StackLayout Orientation="Horizontal" Margin="10" >
+                    <Button   BackgroundColor="#71b8ff" TextColor="White" Text="Confirm" HorizontalOptions="FillAndExpand" Clicked="ButtonConfirmed_Clicked"></Button>
+                    <Button BackgroundColor="#ff6464" TextColor="White" Text="Cancel" HorizontalOptions="FillAndExpand" Clicked="ButtonConfirmed_Clicked"></Button>
                 </StackLayout>
-            </StackLayout>
+               
+            </customControl:BookingDetailView>
         </StackLayout>
 
     </ContentPage.Content>
+       
 </ContentPage>

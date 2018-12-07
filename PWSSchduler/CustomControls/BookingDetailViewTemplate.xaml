@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PWSSchduler.CustomControls.BookingDetailView"
+             BackgroundColor="White"
+             x:Name="_Parent"
+             >
+
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <ScrollView>
+                <StackLayout Margin="10">
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                        <StackLayout.Triggers>
+                            <DataTrigger TargetType="StackLayout" Binding="{TemplateBinding PageIsBusy}" Value="False">
+                                <Setter Property="HeightRequest" Value="0"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="StackLayout" Binding="{TemplateBinding PageIsBusy}" Value="True">
+                                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                            </DataTrigger>
+                        </StackLayout.Triggers>
+                        <ActivityIndicator VerticalOptions="Center" HorizontalOptions="CenterAndExpand" 
+                                           IsEnabled="{TemplateBinding PageIsBusy}" IsRunning="{TemplateBinding IndicatorRunning}"/>
+                        <Label Text="{TemplateBinding ActivityMessage}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                    </StackLayout>
+                    <Grid  >
+                        <Grid.Triggers>
+                            <DataTrigger TargetType="Grid" Binding="{TemplateBinding PageIsBusy}" Value="True">
+                                <Setter Property="HeightRequest" Value="0"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="Grid" Binding="{TemplateBinding PageIsBusy}" Value="False">
+                                <Setter Property="VerticalOptions" Value="Fill"/>
+                            </DataTrigger>
+                        </Grid.Triggers>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Grid.Row="0" TextColor="Gray"  Text="Booking Status:" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start" />
+                                <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="{TemplateBinding Status}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start" />
+                            </Grid>
+                            <BoxView HeightRequest="1" BackgroundColor="Gray"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Grid.Row="0" TextColor="Gray" Text="Booking Type:" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start" />
+                                <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="{TemplateBinding BookingType}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start" />
+                            </Grid>
+                            <BoxView HeightRequest="1" BackgroundColor="Gray"/>
+
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Grid.Row="0" TextColor="Gray"  Text="Email:" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start" />
+                                <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="{TemplateBinding Email}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start" />
+                            </Grid>
+                            <BoxView HeightRequest="1" BackgroundColor="Gray"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Grid.Row="0" TextColor="Gray" Text="Location Address:" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start" />
+                                <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="{TemplateBinding LocationAddress}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start" />
+                            </Grid>
+                            <BoxView HeightRequest="1" BackgroundColor="Gray"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Grid.Row="0" TextColor="Gray" Text="Location Name:" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start" />
+                                <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="{TemplateBinding LocationName}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start" />
+                            </Grid>
+                            <BoxView HeightRequest="1" BackgroundColor="Gray"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Grid.Row="0" TextColor="Gray" Text="Schedule Date:" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start" />
+                                <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="{TemplateBinding ScheduledDate}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start" />
+                            </Grid>
+                            <BoxView HeightRequest="1" BackgroundColor="Gray"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Grid.Row="0" TextColor="Gray" Text="Schedule Start Time:" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                                <Label Grid.Column="1" Grid.Row="0" TextColor="Black" Text="{TemplateBinding ScheduledStartTime}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="Start" />
+                            </Grid>
+                            <BoxView HeightRequest="1" BackgroundColor="Gray"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="7"  Grid.ColumnSpan="2"  >
+                            <Label Text="Notes:" TextColor="Gray"/>
+                            <Editor MinimumHeightRequest="50" Text="{TemplateBinding Notes}" TextColor="Black"  />
+                            <ContentPresenter Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Fill">
+                                <ContentPresenter.Triggers>
+                                    <DataTrigger TargetType="ContentPresenter" Binding="{Binding Source={x:Reference _Parent },Path=PageIsBusy}" Value="True">
+                                        <Setter Property="HeightRequest" Value="0"/>
+                                        <Setter Property="IsVisible" Value="False"/>
+                                    </DataTrigger>
+                                </ContentPresenter.Triggers>
+                            </ContentPresenter>
+
+                        </StackLayout>
+                     </Grid>
+                </StackLayout>
+            </ScrollView>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+</ContentView>

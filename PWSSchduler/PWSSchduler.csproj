@@ -10,7 +10,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CarouselView.FormsPlugin" Version="5.2.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
+    <PackageReference Include="UXDivers.GorillaPlayer.SDK" Version="1.5.0" />
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
   </ItemGroup>
 
@@ -19,10 +21,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="CustomControls\BookingDetailView.xaml">
+    <EmbeddedResource Update="CustomControls\BookingDetailViewTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="CustomControls\BookingView.xaml">
+    <EmbeddedResource Update="CustomControls\BookingViewCellTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CustomControls\DefaultViewTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CustomControls\ImageGalleryModalTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="CustomControls\TileButtonControl.xaml">
@@ -34,7 +42,7 @@
     <EmbeddedResource Update="MasterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\BookingItemDetailPage.xaml">
+    <EmbeddedResource Update="Views\TodayBookingItemDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HomePage.xaml">
@@ -61,6 +69,9 @@
     <EmbeddedResource Update="Views\SettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\TodayImageGalleryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\TodayPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -71,5 +82,17 @@
 
   <ItemGroup>
     <Folder Include="Behaviors\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="CustomControls\BookingDetailViewTemplate.xaml.cs">
+      <DependentUpon>BookingDetailViewTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="CustomControls\BookingViewCellTemplate.xaml.cs">
+      <DependentUpon>BookingViewCellTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TodayBookingItemDetailPage.xaml.cs">
+      <DependentUpon>TodayBookingItemDetailPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

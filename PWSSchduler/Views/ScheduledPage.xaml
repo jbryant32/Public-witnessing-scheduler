@@ -2,8 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models ="clr-namespace:PWSSchduler.Model"
+             xmlns:customControls="clr-namespace:PWSSchduler.CustomControls"
+             xmlns:viewModels ="clr-namespace:PWSSchduler.ViewModels"
              x:Class="PWSSchduler.Views.ScheduledPage">
+    <ContentPage.BindingContext>
+        <viewModels:ScheduledViewModel x:Name="ViewModel"/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
-        <Label Text="Coming Soon"></Label>
+        <ListView  BackgroundColor="White" HasUnevenRows="True" ItemsSource="{Binding Bookings}" SelectionMode="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <customControls:BookingView Email="{Binding Email}" LocationName="{Binding LocationName}" ScheduledStartTime="{Binding ScheduledStartTime}"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

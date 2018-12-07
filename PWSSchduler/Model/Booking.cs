@@ -26,6 +26,7 @@ namespace PWSSchduler.Model
         public string ScheduledStartTime { get; set; }
         [Column("Scheduled End Time")]
         public string ScheduledEndTime { get; set; }
-       
+        [Column("Notes")]
+        public string Notes { get; set; }
     }
 }

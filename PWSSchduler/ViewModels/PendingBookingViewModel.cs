@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Collections.ObjectModel;
+using Xamarin.Forms;
 
 namespace PWSSchduler.ViewModels
 {
@@ -20,15 +22,29 @@ namespace PWSSchduler.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
-        Booking[] _Bookings;
-        public Booking[] Bookings { get { return (_Bookings ?? new Booking[0]); } set { OnPropertyChanged(); _Bookings = value; } }
+        ObservableCollection<Booking> _Bookings = new ObservableCollection<Booking>();
+        public ObservableCollection<Booking> Bookings { get { return _Bookings; } set { _Bookings = value; } }
+        public Command RefreshList => RefreshList ?? new Command(async () => {
+            Bookings.Clear();
+            var listing = await Task.Run(async () => { return (await DataStore.GetLocalBookings()).Where((b) => b.Status == "Unconfirmed"); });
+            foreach (var booking in listing)
+            {
+                Bookings.Add(booking);
+            }
+        });
+
         public PendingBookingViewModel()
         {
 
         }
         public async void GetLocalBookings()
         {
-            Bookings = await Task.Run(async () => { return (await DataStore.GetLocalBookings()).Where((b) => b.Status == "Unconfirmed").ToArray(); });
+            Bookings.Clear();
+            var listing = await Task.Run(async () => { return (await DataStore.GetLocalBookings()).Where((b) => b.Status == "Unconfirmed"); });
+            foreach (var booking in listing)
+            {
+                Bookings.Add(booking);
+            }
         }
       
     }
