@@ -11,14 +11,16 @@
         <viewModels:PendingBookingViewModel x:Name="ViewModel"/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ListView BackgroundColor="White" HasUnevenRows="True" ItemTapped="ListView_ItemTapped" SelectionMode="None" ItemsSource="{Binding Bookings}"  >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <customControls:BookingView Email="{Binding Email}" ScheduledStartTime="{Binding ScheduledStartTime}" LocationName="{Binding LocationName}"/>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <customControls:DefaultViewTemplate x:Name="ViewTemplate" PageIsBusy="{Binding PageBusy}"  IndicatorRunning="{Binding PageBusy}" PageInputEnabled="{Binding PageInputEnabled}">
+            <ListView BackgroundColor="White" HasUnevenRows="True" ItemTapped="ListView_ItemTapped" SelectionMode="None" ItemsSource="{Binding Bookings}"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <customControls:BookingViewCellTemplate Email="{Binding Email}" ScheduledStartTime="{Binding ScheduledStartTime}" LocationName="{Binding LocationName}"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </customControls:DefaultViewTemplate>
     </ContentPage.Content>
 </ContentPage>

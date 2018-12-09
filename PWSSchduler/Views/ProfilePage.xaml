@@ -2,13 +2,74 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PWSSchduler.Views.ProfilePage"
+             xmlns:models="clr-namespace:PWSSchduler.Model"
              Title="Profile"
              >
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackLayout x:Name="StackLayoutHead" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" BackgroundColor="LightGray"  >
+                <Grid  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <BoxView 
+                        CornerRadius="100"
+                    HorizontalOptions="CenterAndExpand" 
+                    VerticalOptions="CenterAndExpand"  
+                    WidthRequest="150"
+                    HeightRequest="150"
+                    Grid.Column="0" 
+                    Grid.ColumnSpan="2"
+                    Grid.Row="0"
+                  
+                    BackgroundColor="White"/>
+                    <Image   
+                    HorizontalOptions="CenterAndExpand" 
+                    VerticalOptions="CenterAndExpand"  
+                    WidthRequest="125"
+                    Grid.Column="0" 
+                    Grid.ColumnSpan="2" 
+                    Grid.Row="0"
+                   
+                    Source="profileimg.png"/>
+                    <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White">
+                        <ListView.ItemsSource>
+                            <x:Array Type="{x:Type models:ProfilePageItem}">
+                                <models:ProfilePageItem Content="Name : Jane Doe" IconImgSrc="email.png" Title="EmailI tem"/>
+                                <models:ProfilePageItem Content="Email : jane.doe@email.com " IconImgSrc="email.png" Title="EmailI tem"/>
+                                <models:ProfilePageItem Content="Kingdom Hall : Panaroma Cathedral City" IconImgSrc="email.png" Title="EmailI tem"/>
+                              
+                            </x:Array>
+                        </ListView.ItemsSource>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" BackgroundColor="White">
+                                        <Image HorizontalOptions="StartAndExpand" Source="{Binding IconImgSrc}"/>
+                                        <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black" Text="{Binding Content}"/>
+                                  
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+
+            </StackLayout>
+            
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

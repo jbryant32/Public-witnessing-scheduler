@@ -4,19 +4,23 @@
              xmlns:models ="clr-namespace:PWSSchduler.Model"
              xmlns:customControls="clr-namespace:PWSSchduler.CustomControls"
              xmlns:viewModels ="clr-namespace:PWSSchduler.ViewModels"
-             x:Class="PWSSchduler.Views.ScheduledPage">
+             x:Class="PWSSchduler.Views.ScheduledPage"
+             Title="Scheduled"
+             >
     <ContentPage.BindingContext>
         <viewModels:ScheduledViewModel x:Name="ViewModel"/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ListView  BackgroundColor="White" HasUnevenRows="True" ItemsSource="{Binding Bookings}" SelectionMode="None">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <customControls:BookingView Email="{Binding Email}" LocationName="{Binding LocationName}" ScheduledStartTime="{Binding ScheduledStartTime}"/>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </ContentPage.Content>
+        <customControls:DefaultViewTemplate PageIsBusy="{Binding PageBusy}" IndicatorRunning="{Binding PageBusy}" >
+            <ListView x:Name="ListScheduledBookings" BackgroundColor="White" HasUnevenRows="True" ItemsSource="{Binding Bookings}" SelectionMode="None" ItemTapped="ListScheduledBookings_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <customControls:BookingViewCellTemplate Email="{Binding Email}" LocationName="{Binding LocationName}" ScheduledStartTime="{Binding ScheduledStartTime}"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </customControls:DefaultViewTemplate>
+     </ContentPage.Content>
 </ContentPage>

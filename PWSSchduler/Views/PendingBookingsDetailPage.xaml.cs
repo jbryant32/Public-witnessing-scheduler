@@ -49,11 +49,21 @@ namespace PWSSchduler.Views
                 Bookings[Bookings.IndexOf(Results)].Status = "Confirmed";
                 await DataStore.UpdateLocal(Bookings);
                 Thread.Sleep(2000);
+                this.IndicatorRunning = false;
+                this.UpdateSucess = true;
+                this.IsBusyMessage = "Update Completed";
+                Thread.Sleep(1000);
+
             });
 
-            this.IndicatorRunning = false;
-            this.UpdateSucess = true;
-            this.IsBusyMessage = "Update Completed";
+         
+            await Navigation.PopToRootAsync(true);
+
+        }
+
+        private async void ButtonCanceled_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopToRootAsync(true);
         }
     }
 }

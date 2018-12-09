@@ -1,16 +1,67 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PWSSchduler.CustomControls.DefaultViewTemplate">
-  <ContentView.ControlTemplate>
-        <ControlTemplate>
-            <StackLayout>
-                <StackLayout VerticalOptions="CenterAndExpand">
-                    <ActivityIndicator VerticalOptions="Center" HorizontalOptions="CenterAndExpand" 
-                                           IsEnabled="{TemplateBinding PageIsBusy}" IsRunning="{TemplateBinding IndicatorRunning}"/>
+            xmlns:customControls="clr-namespace:PWSSchduler.CustomControls"
+             x:Class="PWSSchduler.CustomControls.DefaultViewTemplate" BackgroundColor="White">
+    <!--<ContentView.Content>
+        <AbsoluteLayout InputTransparent="True"
+                                Grid.Column="0" 
+                                 Grid.ColumnSpan="2"  
+                                 Grid.Row="0"
+                                 Grid.RowSpan="4" >
+            <Label x:Name="LabelMessage"
+                           AbsoluteLayout.LayoutFlags="All"
+                           AbsoluteLayout.LayoutBounds="0.5,0.5,1,1"  
+                           BackgroundColor="Green" 
+                           TextColor="Black" 
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Text="Message for User"/>
+        </AbsoluteLayout>
+    </ContentView.Content>-->
+    <ContentView.ControlTemplate>
+        <ControlTemplate x:Name="DefaultTemplate">
+            <Grid x:Name="GridTemplate">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackLayout 
+                                 Grid.Column="0" 
+                                 Grid.ColumnSpan="2"  
+                                 Grid.Row="0"
+                                 Grid.RowSpan="4"
+                                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <ContentPresenter/>
                 </StackLayout>
-                <ContentPresenter/>
-            </StackLayout>
+                <StackLayout   BackgroundColor="White" 
+                                 Grid.Column="0" 
+                                 Grid.ColumnSpan="2"  
+                                 Grid.Row="0"
+                                 Grid.RowSpan="4"
+                                 IsVisible="{TemplateBinding PageIsBusy}"
+                                 InputTransparent="{TemplateBinding PageInputEnabled}"
+                                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                    <StackLayout   HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand" >
+                        <ActivityIndicator 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" 
+                        IsVisible="{TemplateBinding PageIsBusy}"
+                        IsEnabled="{TemplateBinding PageIsBusy}" 
+                        IsRunning="{TemplateBinding IndicatorRunning}"/>
+                        <Label VerticalOptions="Center" HorizontalOptions="Center" Text="...Page Loading" TextColor="Black"/>
+                    </StackLayout>
+                </StackLayout>
+       
+            </Grid>
         </ControlTemplate>
-  </ContentView.ControlTemplate>
+    </ContentView.ControlTemplate>
 </ContentView>

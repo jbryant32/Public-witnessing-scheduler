@@ -10,21 +10,10 @@ using System.Threading.Tasks;
 
 namespace PWSSchduler.ViewModels
 {
-    public class TodayViewModel:INotifyPropertyChanged
+    public class TodayViewModel:ViewModel 
     {
         ObservableCollection<Booking> _Bookings = new ObservableCollection<Booking>();
         public ObservableCollection<Booking> Bookings { get { return _Bookings; } set { _Bookings = value;  } }
-        bool Fetch = false;
-        public bool FetchComplete { get { return Fetch; } set { Fetch = value; OnPropertyChanged(); } }
-        bool Show = true;
-        public bool ShowBusyIndicator { get { return Show; } set { Show = value; OnPropertyChanged(); } }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string name = "") {
-            if (PropertyChanged != null) {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
 
          public TodayViewModel()
         {
@@ -44,15 +33,18 @@ namespace PWSSchduler.ViewModels
             {
                 Bookings.Clear();
             }
-            await Task.Run(() => Thread.Sleep(2000));
-          
-            foreach (var booking in await DataStore.GetLocalBookings())
-            {
-                if(DateTime.Today.ToString() == booking.ScheduledDate)
-                Bookings.Add(booking);
-            }
-            this.ShowBusyIndicator = false;
-            this.FetchComplete = true;
+            await Task.Run( async () => {
+                Thread.Sleep(2000);
+                foreach (var booking in await DataStore.GetLocalBookings())
+                {
+                    if (DateTime.Today.ToString() == booking.ScheduledDate)
+                        Bookings.Add(booking);
+                }
+
+            });
+            this.PageBusy = false;
+            this.PageInputEnabled = true;
+           
         }
     }
 }

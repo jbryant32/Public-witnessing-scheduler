@@ -19,10 +19,14 @@ namespace PWSSchduler.CustomControls
         public static readonly BindableProperty PageIsBusyProperty = BindableProperty.Create(nameof(PageIsBusy), typeof(bool), typeof(BookingDetailView), false);
         public bool IndicatorRunning { get => (bool)GetValue(IndicatorRunningProperty); set => SetValue(IndicatorRunningProperty, value); }
         public static readonly BindableProperty IndicatorRunningProperty = BindableProperty.Create(nameof(IndicatorRunning), typeof(bool), typeof(BookingDetailView), false);
+        public bool PageInputEnabled { get => (bool)GetValue(PageInputEnabledProperty); set => SetValue(PageInputEnabledProperty, value); }
+        public static readonly BindableProperty PageInputEnabledProperty = BindableProperty.Create(nameof(PageInputEnabled), typeof(bool), typeof(BookingDetailView), false);
         #endregion
         public DefaultViewTemplate ()
 		{
 			InitializeComponent ();
 		}
-	}
+
+        
+    }
 }

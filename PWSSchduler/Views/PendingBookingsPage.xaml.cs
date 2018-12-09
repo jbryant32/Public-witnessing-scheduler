@@ -17,12 +17,12 @@ namespace PWSSchduler.Views
         {
             InitializeComponent();
         }
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
-            ViewModel.GetLocalBookings();
+            await ViewModel.GetLocalBookings();
             base.OnAppearing();
         }
-        private async  void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
            await Navigation.PushAsync( new PendingBookingsDetailPage((e.Item as Booking)),true);
         }

@@ -20,16 +20,18 @@
         <viewModels:TodayViewModel x:Name="viewModel"/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-      
-        <ListView BackgroundColor="White" HasUnevenRows="True" ItemTapped="ListView_ItemTapped" SelectionMode="None" ItemsSource="{Binding Bookings}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <customControls:BookingView Email="{Binding Email}" LocationName="{Binding LocationName}"  ScheduledStartTime="{Binding ScheduledStartTime }"/>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+
+        <customControls:DefaultViewTemplate PageIsBusy="{Binding PageBusy}"  IndicatorRunning="{Binding PageBusy}" PageInputEnabled="{Binding PageInputEnabled}">
+            <ListView BackgroundColor="White" HasUnevenRows="True" ItemTapped="ListView_ItemTapped" SelectionMode="None" ItemsSource="{Binding Bookings}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <customControls:BookingViewCellTemplate Email="{Binding Email}" LocationName="{Binding LocationName}"  ScheduledStartTime="{Binding ScheduledStartTime }"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </customControls:DefaultViewTemplate>
 
     </ContentPage.Content>
 </ContentPage>

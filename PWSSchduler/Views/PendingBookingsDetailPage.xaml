@@ -27,7 +27,7 @@
                 
                 <StackLayout Orientation="Horizontal" Margin="10" >
                     <Button   BackgroundColor="#71b8ff" TextColor="White" Text="Confirm" HorizontalOptions="FillAndExpand" Clicked="ButtonConfirmed_Clicked"></Button>
-                    <Button BackgroundColor="#ff6464" TextColor="White" Text="Cancel" HorizontalOptions="FillAndExpand" Clicked="ButtonConfirmed_Clicked"></Button>
+                    <Button x:Name="ButtonCanceled" BackgroundColor="#ff6464" TextColor="White" Text="Cancel" HorizontalOptions="FillAndExpand" Clicked="ButtonCanceled_Clicked"></Button>
                 </StackLayout>
                
             </customControl:BookingDetailView>
