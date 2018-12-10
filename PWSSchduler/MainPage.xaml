@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:PWSSchduler"
              xmlns:views ="clr-namespace:PWSSchduler.Views"
-                  x:Class="PWSSchduler.MainPage">
+                  x:Class="PWSSchduler.MainPage"
+                  x:Name="MasterPage"
+                  >
 
     <MasterDetailPage.Master>
         <local:MasterPage x:Name="MasterPageInstance"/>

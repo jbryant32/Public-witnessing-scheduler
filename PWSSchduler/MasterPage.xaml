@@ -8,7 +8,7 @@
              Title="Home"
              >
     <ContentPage.Content>
-        <ListView x:FieldModifier="Public" x:Name="ListViewPageLinks">
+        <ListView x:FieldModifier="Public" x:Name="ListViewPageLinks" SelectionMode="None">
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type models:MasterPageItem }">
                     <!--Font Awesome Solid-->

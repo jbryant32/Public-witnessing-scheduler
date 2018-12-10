@@ -7,8 +7,6 @@
              x:Class="PWSSchduler.Views.TodayPage"
              Title="Scheduled Today"
              BackgroundColor="White"
-             
-            
              >
     <ContentPage.Resources>
         <Style TargetType="Label">

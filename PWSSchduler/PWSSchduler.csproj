@@ -21,28 +21,34 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="CustomControls\AnimatedControlLabel.xaml">
+    <EmbeddedResource Update="Templates\BookingDetailViewTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="CustomControls\BookingDetailViewTemplate.xaml">
+    <EmbeddedResource Update="Templates\BookingViewCellTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="CustomControls\BookingViewCellTemplate.xaml">
+    <EmbeddedResource Update="Templates\DefaultViewTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="CustomControls\DefaultViewTemplate.xaml">
+    <EmbeddedResource Update="Templates\HomeViewTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="CustomControls\ImageGalleryModalTemplate.xaml">
+    <EmbeddedResource Update="Templates\ImageGalleryModalTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="CustomControls\TileButtonControl.xaml">
+    <EmbeddedResource Update="Templates\TileButtonTemplated.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="MasterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AlertsViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ProfileUserDetailsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\TodayBookingItemDetailPage.xaml">
@@ -88,10 +94,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="CustomControls\BookingDetailViewTemplate.xaml.cs">
+    <Compile Update="Templates\BookingDetailViewTemplate.xaml.cs">
       <DependentUpon>BookingDetailViewTemplate.xaml</DependentUpon>
     </Compile>
-    <Compile Update="CustomControls\BookingViewCellTemplate.xaml.cs">
+    <Compile Update="Templates\BookingViewCellTemplate.xaml.cs">
       <DependentUpon>BookingViewCellTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\TodayBookingItemDetailPage.xaml.cs">

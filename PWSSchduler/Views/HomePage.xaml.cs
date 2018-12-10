@@ -23,34 +23,6 @@ namespace PWSSchduler.Views
             await this.ViewModel.InitViewModel();
             base.OnAppearing();
         }
-        private void ButtonToday_Clicked(object sender, EventArgs e)
-        {
-            
-            var Master = Application.Current.MainPage as MainPage;
-            Master.Detail = new NavigationPage(new TodayPage());
-            Master.IsPresented = false;
-
-        }
-
-        private   void ButtonPendingApproval_Clicked(object sender, EventArgs e)
-        {
-            var Master = Application.Current.MainPage as MainPage;
-            Master.Detail = new NavigationPage(new PendingBookingsPage());
-            Master.IsPresented = false;
-        }
-
-        private   void ButtonScheduled_Clicked(object sender, EventArgs e)
-        {
-            var Master = Application.Current.MainPage as MainPage;
-            Master.Detail = new NavigationPage(new ScheduledPage());
-            Master.IsPresented = false;
-        }
-
-        private   void ButtonSendRequest_Clicked(object sender, EventArgs e)
-        {
-            var Master = Application.Current.MainPage as MainPage;
-            Master.Detail = new NavigationPage(new SendRequestPage());
-            Master.IsPresented = false;
-        }
+       
     }
 }

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace PWSSchduler.CustomControls
+namespace PWSSchduler.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AnimatedControlLabel : ContentView
+	public partial class AlertsViewPage : ContentPage
 	{
-		public AnimatedControlLabel ()
+		public AlertsViewPage ()
 		{
 			InitializeComponent ();
 		}

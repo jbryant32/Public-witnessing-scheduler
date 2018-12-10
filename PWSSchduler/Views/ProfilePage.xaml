@@ -3,8 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PWSSchduler.Views.ProfilePage"
              xmlns:models="clr-namespace:PWSSchduler.Model"
+             xmlns:viewModels="clr-namespace:PWSSchduler.ViewModels"
              Title="Profile"
              >
+    <ContentPage.BindingContext>
+        <models:ProfilePageItem x:Name="ViewModel"/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -45,22 +49,40 @@
                     Grid.Row="0"
                    
                     Source="profileimg.png"/>
-                    <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White">
+                    <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" SelectionMode="None" ItemTapped="ListView_ItemTapped">
                         <ListView.ItemsSource>
                             <x:Array Type="{x:Type models:ProfilePageItem}">
-                                <models:ProfilePageItem Content="Name : Jane Doe" IconImgSrc="email.png" Title="EmailI tem"/>
-                                <models:ProfilePageItem Content="Email : jane.doe@email.com " IconImgSrc="email.png" Title="EmailI tem"/>
-                                <models:ProfilePageItem Content="Kingdom Hall : Panaroma Cathedral City" IconImgSrc="email.png" Title="EmailI tem"/>
-                              
+                                <models:ProfilePageItem PropertyName="KindomHall :" Content="Panaroma Cathedral City" IconImgSrc="&#xf018;" 
+                                                        Title="KingdomHall"/>
+                                <models:ProfilePageItem PropertyName="Name :" Content="Jane Doe" IconImgSrc="&#xf573;" Title="Name"/>
+                                <models:ProfilePageItem PropertyName="Email :" Content="jane.doe@email.com " IconImgSrc="&#xf0e0;" Title="Name"/>
+                                <models:ProfilePageItem PropertyName="Street :" Content="47892 Vista China" IconImgSrc="&#xf018;" Title="Street"/>
+                                <models:ProfilePageItem PropertyName="City :" Content="Cathedral City" IconImgSrc="&#xf64f;" Title="City"/>
+                                <models:ProfilePageItem PropertyName="Zip Code :" Content="92264" IconImgSrc="&#xf674;" Title="ZipCode"/>
+
                             </x:Array>
                         </ListView.ItemsSource>
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
                                     <StackLayout Orientation="Horizontal" BackgroundColor="White">
-                                        <Image HorizontalOptions="StartAndExpand" Source="{Binding IconImgSrc}"/>
-                                        <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black" Text="{Binding Content}"/>
-                                  
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="50"/>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="*"/> 
+                                            </Grid.ColumnDefinitions>
+                                            <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="24" TextColor="Gray" Grid.Column="0" HorizontalOptions="Fill" Text="{Binding IconImgSrc}">
+                                                <Label.FontFamily>
+                                                    <OnPlatform x:TypeArguments="x:String"
+                                            Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
+                                             iOS="Font Awesome 5 Free"/>
+                                                </Label.FontFamily>
+                                            </Label>
+                                            <Label TextColor="Gray" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Text="{Binding PropertyName}"/>
+                                        </Grid>
+                                        <Label Grid.Column="2" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" TextColor="Black" Text="{Binding Content}" LineBreakMode="TailTruncation"/>
+
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>

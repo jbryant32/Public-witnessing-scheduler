@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PWSSchduler.CustomControls.TileButtonTemplated">
+
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <Grid>
+                <Grid.Style>
+                    <Style   TargetType="Grid">
+                        <Setter Property="BackgroundColor" Value="SkyBlue"></Setter>
+                        <Setter Property="MinimumWidthRequest" Value="145"></Setter>
+                        <Setter Property="WidthRequest" Value="145"></Setter>
+                        <Setter Property="MinimumHeightRequest" Value="125"></Setter>
+                        <Setter Property="HeightRequest" Value="125"></Setter>
+                    </Style>
+                </Grid.Style>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="SkyBlue" Clicked="Button_Clicked"  />
+
+                <StackLayout InputTransparent="True" BackgroundColor="Transparent" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="0">
+                    <Label FontSize="42" TextColor="White" VerticalTextAlignment="End" Text="{x:TemplateBinding IconString}" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" InputTransparent="True" >
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String"
+                                            Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
+                                             iOS="Font Awesome 5 Free"/>
+                        </Label.FontFamily>
+                    </Label>
+                    <Label FontSize="20" TextColor="White" VerticalTextAlignment="Start" Text="{x:TemplateBinding ButtonTitle}" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" InputTransparent="True"></Label>
+                </StackLayout>
+            </Grid>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+</ContentView>

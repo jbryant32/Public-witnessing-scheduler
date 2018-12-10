@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -13,18 +14,19 @@ namespace PWSSchduler
         public MainPage()
         {
             InitializeComponent();
-            this.MasterPageInstance.ListViewPageLinks.ItemSelected += ListViewPageLinks_ItemSelected;
+            this.MasterPageInstance.ListViewPageLinks.ItemTapped += ListViewPageLinks_ItemTapped; ;
         }
-      
-        private void ListViewPageLinks_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+
+        private async void ListViewPageLinks_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var Item = e.SelectedItem as MasterPageItem;
+            var Item = e.Item as MasterPageItem;
             if (Item != null)
             {
-                Detail = (new NavigationPage((Page)Activator.CreateInstance(Item.ContentPageItem)));
+                await this.Detail.Navigation.PushAsync((Page)Activator.CreateInstance(Item.ContentPageItem));
                 this.MasterPageInstance.ListViewPageLinks.SelectedItem = null;
                 IsPresented = false;
             }
         }
+ 
     }
 }
