@@ -2,12 +2,56 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PWSSchduler.Views.AlertsViewPage"
+             xmlns:customContols="clr-namespace:PWSSchduler.CustomControls"
+             xmlns:viewModels="clr-namespace:PWSSchduler.ViewModels"
+             xmlns:models="clr-namespace:PWSSchduler.Model"
              Title="New Notifications">
+    <ContentPage.BindingContext>
+        <viewModels:AlertViewModel x:Name="ViewModel"/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Coming Soon"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ListView ItemsSource="{Binding AlertListItems}" ItemTapped="ListView_ItemTapped" SelectionMode="None" BackgroundColor="White" IsGroupingEnabled="True">
+             
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding Heading}"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.Style>
+                                <Style TargetType="Grid">
+                                    <Style.Triggers>
+                                        <DataTrigger TargetType="Grid" Binding="{Binding Heading}" Value="New">
+                                            <Setter Property="BackgroundColor" Value="SkyBlue"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Grid.Style>
+                            <Label VerticalTextAlignment="Center" Grid.Column="0" Text="B" TextColor="Gray">
+                                <Label.Style>
+                                    <Style TargetType="Label" >
+                                        <Style.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding Heading}" Value="Old">
+                                                <Setter Property="BackgroundColor" Value="White"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Label.Style>
+                            </Label>
+                            <Label VerticalOptions="Center" Grid.Column="1" Text="{Binding Content}" TextColor="Black"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

@@ -33,7 +33,6 @@
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  HeightRequest="125" Margin="0,0,0,20">
                         <customControls:TileButtonTemplated IconString="&#xf274;" ButtonTitle="Scheduled" ButtonClicked="{Binding CommandOpenScheduled}"/>
                         <customControls:TileButtonTemplated IconString="&#xf2b6;" ButtonTitle="Sending" ButtonClicked="{Binding CommandOpenSendRequest}"/>
-                  
                     </StackLayout>
                 </StackLayout>
             </ScrollView>

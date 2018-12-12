@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PWSSchduler.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,11 @@ namespace PWSSchduler.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var Item = e.Item as AlertPageItem;
+            Item.isPrestene = false;
+        }
+    }
 }
