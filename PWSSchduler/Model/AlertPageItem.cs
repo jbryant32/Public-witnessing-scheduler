@@ -9,6 +9,8 @@ namespace PWSSchduler.Model
     {
         string _Status;
         public string Status { get =>_Status; set { OnPropertyChanging();_Status = value; OnPropertyChanged(); } }
+        string _Condition;
+        public string Condition { get => _Condition; set { OnPropertyChanging(); _Condition = value; OnPropertyChanged(); } }
         string _Title;
         public string Title { get => _Title; set { OnPropertyChanging(); _Title = value; OnPropertyChanged(); } }
         string _Content;

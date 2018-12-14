@@ -21,9 +21,7 @@
             </ListView.GroupHeaderTemplate>
             <ListView.ItemTemplate>
                 <DataTemplate>
-
-                    <customContols:AlertViewCell  ViewCellTappedCommand="{Binding Source={Reference This},Path=ViewModel.AlertTappedCommand}" ViewCellContext="{Binding .}"  TextContent="{Binding Content}" />
-                 
+                    <customContols:AlertViewCell ViewCellTappedCommand="{Binding Source={Reference This},Path=ViewModel.AlertTappedCommand}"   />
                  </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

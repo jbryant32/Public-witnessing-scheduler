@@ -2,16 +2,21 @@
 <ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PWSSchduler.CustomControls.AlertViewCell"
+          xmlns:converters="clr-namespace:PWSSchduler.Converters"
           x:Name="This"
           Tapped="TapGestureRecognizer_Tapped"
           >
+    
   <ViewCell.View>
-        <Grid BackgroundColor="AliceBlue" >
+        <Grid>
             <Grid.Style>
                 <Style TargetType="Grid" >
                     <Style.Triggers>
-                        <DataTrigger TargetType="Grid" Binding="{Binding Source={x:Reference This},Path=isPrestene}" Value="False">
+                        <DataTrigger TargetType="Grid" Binding="{Binding Condition}" Value="Opened">
                             <Setter Property="BackgroundColor" Value="White"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Grid" Binding="{Binding Condition}" Value="UnOpened">
+                            <Setter Property="BackgroundColor" Value="AliceBlue"/>
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
@@ -20,23 +25,29 @@
                 <ColumnDefinition Width="20"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label InputTransparent="True" BackgroundColor="AliceBlue" VerticalOptions="CenterAndExpand" Grid.Column="0" Text="B" TextColor="Gray">
+            <Label InputTransparent="True"  VerticalOptions="CenterAndExpand" Grid.Column="0" Text="B" TextColor="Gray">
                 <Label.Style>
                     <Style TargetType="Label" >
                         <Style.Triggers>
-                            <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference This},Path=isPrestene}" Value="False">
+                            <DataTrigger TargetType="Label" Binding="{Binding Condition}" Value="Opened">
                                 <Setter Property="BackgroundColor" Value="White"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="Label" Binding="{Binding Condition}" Value="UnOpened">
+                                <Setter Property="BackgroundColor" Value="AliceBlue"/>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
                 </Label.Style>
             </Label>
-            <Label InputTransparent="True" BackgroundColor="AliceBlue" VerticalOptions="CenterAndExpand" Grid.Column="1" Text="{Binding Source={x:Reference This},Path=TextContent}" TextColor="Black">
+            <Label InputTransparent="True"   VerticalOptions="CenterAndExpand" Grid.Column="1" Text="{Binding Content}" TextColor="Black">
                 <Label.Style>
                     <Style TargetType="Label" >
                         <Style.Triggers>
-                            <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference This},Path=isPrestene}" Value="False">
+                            <DataTrigger TargetType="Label" Binding="{Binding Condition}" Value="Opened">
                                 <Setter Property="BackgroundColor" Value="White"/>
+                            </DataTrigger>
+                            <DataTrigger TargetType="Label" Binding="{Binding Condition}" Value="UnOpened">
+                                <Setter Property="BackgroundColor" Value="AliceBlue"/>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>

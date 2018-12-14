@@ -2,6 +2,7 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:effects="clr-namespace:PWSSchduler.Droid"
+             xmlns:converters="clr-namespace:PWSSchduler.Converters"
              xmlns:customControls="clr-namespace:PWSSchduler.CustomControls"
              x:Class="PWSSchduler.App">
     <Application.Resources>
@@ -22,6 +23,10 @@
                 <Setter Property="FontSize" Value="24"></Setter>
             </Style>
            
+        </ResourceDictionary>
+        <ResourceDictionary>
+            <converters:ObjectToAlertItem x:Key="ObjectToAlertItemConverter"/>
+            <converters:AlertItemStatusToBool x:Key="AlertItemStatusToBoolConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
