@@ -10,6 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Icons\AlertIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Icons\AlertIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CarouselView.FormsPlugin" Version="5.2.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
     <PackageReference Include="UXDivers.GorillaPlayer.SDK" Version="1.5.0" />
@@ -21,28 +29,28 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Templates\AlertItemViewCell.xaml">
+    <EmbeddedResource Update="CustomControls\AlertItemViewCell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Templates\AlertViewCell.xaml">
+    <EmbeddedResource Update="CustomControls\AlertViewCell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Templates\BookingDetailViewTemplate.xaml">
+    <EmbeddedResource Update="CustomControls\BookingDetailViewTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Templates\BookingViewCellTemplate.xaml">
+    <EmbeddedResource Update="CustomControls\BookingViewCellTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Templates\DefaultViewTemplate.xaml">
+    <EmbeddedResource Update="CustomControls\DefaultViewTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Templates\HomeViewTemplate.xaml">
+    <EmbeddedResource Update="CustomControls\HomeViewTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Templates\ImageGalleryModalTemplate.xaml">
+    <EmbeddedResource Update="CustomControls\ImageGalleryModalTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Templates\TileButtonTemplated.xaml">
+    <EmbeddedResource Update="CustomControls\TileButtonTemplated.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="LoginPage.xaml">
@@ -103,10 +111,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Templates\BookingDetailViewTemplate.xaml.cs">
+    <Compile Update="CustomControls\BookingDetailViewTemplate.xaml.cs">
       <DependentUpon>BookingDetailViewTemplate.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Templates\BookingViewCellTemplate.xaml.cs">
+    <Compile Update="CustomControls\BookingViewCellTemplate.xaml.cs">
       <DependentUpon>BookingViewCellTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\TodayBookingItemDetailPage.xaml.cs">

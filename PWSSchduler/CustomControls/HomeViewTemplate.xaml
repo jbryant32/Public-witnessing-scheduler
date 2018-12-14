@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PWSSchduler.CustomControls.HomeViewTemplate"
+             x:Name="This">
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <StackLayout VerticalOptions="EndAndExpand">
+                <ContentPresenter/>
+                <Grid  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="80"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <BoxView x:Name="BoxViewRedCircle" Grid.Column="0" Grid.ColumnSpan="3"  BackgroundColor="#59b3f4" HeightRequest="60"    >
+
+                    </BoxView>
+
+
+                    <StackLayout x:Name="StackLayoutBellIcon"  Grid.Column="2">
+                        <RelativeLayout Grid.Column="0" >
+                            <Image   WidthRequest="45" HeightRequest="45"  HorizontalOptions="Center" Aspect="AspectFit" VerticalOptions="Center"  Source="AlertIcon.png" >
+                                <Image.Style>
+                                    <Style TargetType="Image">
+                                        <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression Factor=1,Property=Width,Type=RelativeToParent}"/>
+                                        <Setter Property="RelativeLayout.HeightConstraint" Value="{ConstraintExpression Factor=1,Property=Height,Type=RelativeToParent}"/>
+                                    </Style>
+                                </Image.Style>
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={x:Reference This},Path=}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <BoxView BackgroundColor="Red" CornerRadius="100"  >
+                                <BoxView.Style>
+                                    <Style TargetType="BoxView">
+                                        <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression Factor=.4,Property=Width,Type=RelativeToParent}"/>
+                                        <Setter Property="RelativeLayout.HeightConstraint" Value="{ConstraintExpression Factor=.4,Property=Width,Type=RelativeToParent}"/>
+
+                                    </Style>
+                                </BoxView.Style>
+                            </BoxView>
+                            <Label x:Name="LabelTotalAlerts" 
+                                   VerticalTextAlignment="Center" 
+                                   HorizontalTextAlignment="Center" 
+                                   FontSize="22"  Text="3"
+                                   FontAttributes="Bold" 
+                                   TextColor="White">
+                                <Label.Style>
+                                    <Style TargetType="Label">
+                                        <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression Factor=.35,Property=Width,Type=RelativeToParent}"/>
+                                        <Setter Property="RelativeLayout.HeightConstraint" Value="{ConstraintExpression Factor=.4,Property=Height,Type=RelativeToParent}"/>
+                                        <Setter Property="IsVisible" Value="{TemplateBinding Converter={x:StaticResource Key=TotalAlertsToBoolConverter},TotalAlerts}"/>
+                                        <Setter Property="IsVisible" Value="{TemplateBinding Converter={x:StaticResource Key=TotalAlertsToBoolConverter},TotalAlerts}"/>
+                                    </Style>
+                                </Label.Style>
+                            </Label>
+
+                        </RelativeLayout>
+
+                    </StackLayout>
+
+
+
+                    <Label   Grid.Column="0" Grid.ColumnSpan="2" x:Name="LabelCurrentDateTime" 
+                               Text="{Binding Converter={x:StaticResource Key=DateTimeToDateMMDDConverter}, Source={x:Reference This},Path=CurrentDate}" >
+                        <Label.Style>
+                            <Style TargetType="Label">
+                                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                                <Setter Property="FontAttributes" Value="Bold"/>
+                                <Setter Property="FontSize" Value="22"/>
+                                <Setter Property="TextColor" Value="White"/>
+
+                            </Style>
+                        </Label.Style>
+                    </Label>
+                </Grid>
+            </StackLayout>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+</ContentView>

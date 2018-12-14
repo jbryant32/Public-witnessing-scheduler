@@ -27,6 +27,10 @@
         <ResourceDictionary>
             <converters:ObjectToAlertItem x:Key="ObjectToAlertItemConverter"/>
             <converters:AlertItemStatusToBool x:Key="AlertItemStatusToBoolConverter"/>
+            <converters:DateTimeToDateMMDDYYConverter x:Key="DateTimeToDateMMDDYYConverter"/>
+            <converters:DateTimeToDateMMDDConverter x:Key="DateTimeToDateMMDDConverter"/>
+            <converters:TotalAlertsToBoolConverter x:Key="TotalAlertsToBoolConverter"/>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

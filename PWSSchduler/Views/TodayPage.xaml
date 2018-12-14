@@ -18,7 +18,6 @@
         <viewModels:TodayViewModel x:Name="viewModel"/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-
         <customControls:DefaultViewTemplate PageIsBusy="{Binding PageBusy}"  IndicatorRunning="{Binding PageBusy}" PageInputEnabled="{Binding PageInputEnabled}">
             <ListView BackgroundColor="White" HasUnevenRows="True" ItemTapped="ListView_ItemTapped" SelectionMode="None" ItemsSource="{Binding Bookings}">
                 <ListView.ItemTemplate>

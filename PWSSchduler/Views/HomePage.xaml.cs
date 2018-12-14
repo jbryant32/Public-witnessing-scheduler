@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PWSSchduler.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,8 @@ namespace PWSSchduler.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : ContentPage
     {
-
+        HomeViewModel _ViewModel = new HomeViewModel();
+        public HomeViewModel ViewModel { get=>_ViewModel; set=>_ViewModel=value; }
         public HomePage()
         {
             InitializeComponent();
@@ -20,7 +22,7 @@ namespace PWSSchduler.Views
         }
         protected async override void OnAppearing()
         {
-            await this.ViewModel.InitViewModel();
+            await this.ViewModel.Init();
             base.OnAppearing();
         }
        

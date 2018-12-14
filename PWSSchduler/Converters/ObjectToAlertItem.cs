@@ -11,7 +11,7 @@ namespace PWSSchduler.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value as AlertPageItem;
+            return value as Alert;
         }
         //The ConvertBack method is called when data moves from the target to the source in TwoWay or OneWayToSource
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace PWSSchduler.Model
@@ -21,7 +22,8 @@ namespace PWSSchduler.Model
         {
             PropertyChanged += OnPropertyChanged;
         }
-
+        public virtual async Task Init() {
+        }
         protected virtual void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             try

@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:styles="clr-namespace:PWSSchduler.Styles"
              xmlns:customControls ="clr-namespace:PWSSchduler.CustomControls"
-             xmlns:viewModel ="clr-namespace:PWSSchduler.ViewModels"
-             x:Class="PWSSchduler.Views.HomePage"
+              x:Class="PWSSchduler.Views.HomePage"
              Title="Home"
              BackgroundColor="White"
+             x:Name="This"
              >
     <ContentPage.Resources>
         <Style TargetType="Button">
@@ -15,11 +15,12 @@
         </Style>
 
     </ContentPage.Resources>
-    <ContentPage.BindingContext>
-        <viewModel:HomeViewModel x:Name="ViewModel"  />
-    </ContentPage.BindingContext>
+
     <ContentPage.Content>
-        <customControls:HomeViewTemplate TapCommand="{Binding CommandTappedBell}" >
+        <customControls:HomeViewTemplate 
+            TapCommand="{Binding Source={x:Reference This},Path=ViewModel.CommandTappedBell}"
+            CurrentDate="{Binding Source={x:Reference This},Path=ViewModel.CurrentDateTime}" 
+            TotalAlerts="{Binding Source={x:Reference This},Path=ViewModel.Alerts.Count}" >
             <ScrollView HorizontalOptions="Fill" Padding="10">
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Fill" >
                     <StackLayout  Orientation="Vertical" HorizontalOptions="Fill" Margin="0,0,0,20">
@@ -27,12 +28,17 @@
                         <BoxView HorizontalOptions="Fill" BackgroundColor="Gray" HeightRequest="1" ></BoxView>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  HeightRequest="125" Margin="0,0,0,20">
-                        <customControls:TileButtonTemplated IconString="&#xf185;" ButtonTitle="Today" ButtonClicked="{Binding CommandOpenToday}"/>
-                        <customControls:TileButtonTemplated IconString="&#xf017;" ButtonTitle="Pending" ButtonClicked="{Binding CommandOpenPending}"/>
+                        <customControls:TileButtonTemplated IconString="&#xf185;" ButtonTitle="Today" 
+                                                            ButtonClicked="{Binding Source={x:Reference This},Path=ViewModel.CommandOpenToday}"/>
+                        <customControls:TileButtonTemplated IconString="&#xf017;" 
+                                                            ButtonTitle="Pending" 
+                                                            ButtonClicked="{Binding Source={x:Reference This},Path=ViewModel.CommandOpenPending}"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  HeightRequest="125" Margin="0,0,0,20">
-                        <customControls:TileButtonTemplated IconString="&#xf274;" ButtonTitle="Scheduled" ButtonClicked="{Binding CommandOpenScheduled}"/>
-                        <customControls:TileButtonTemplated IconString="&#xf2b6;" ButtonTitle="Sending" ButtonClicked="{Binding CommandOpenSendRequest}"/>
+                        <customControls:TileButtonTemplated IconString="&#xf274;" ButtonTitle="Scheduled" 
+                                                            ButtonClicked="{Binding Source={x:Reference This},Path=ViewModel.CommandOpenScheduled}"/>
+                        <customControls:TileButtonTemplated IconString="&#xf2b6;" ButtonTitle="Sending" 
+                                                            ButtonClicked="{Binding Source={x:Reference This},Path=ViewModel.CommandOpenSendRequest}"/>
                     </StackLayout>
                 </StackLayout>
             </ScrollView>

@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace PWSSchduler.Model
 {
-    public class AlertPageItem:ModelBase
+    public class Alert:ModelBase
     {
         string _Status;
         public string Status { get =>_Status; set { OnPropertyChanging();_Status = value; OnPropertyChanged(); } }
@@ -16,7 +16,7 @@ namespace PWSSchduler.Model
         string _Content;
         public string Content { get => _Content; set { OnPropertyChanging();_Content = value; OnPropertyChanged(); } }
       
-        public AlertPageItem()
+        public Alert()
         {
 
         }

@@ -4,9 +4,9 @@ using System.Text;
 
 namespace PWSSchduler.Model
 {
-    public class AlertPageGroupItem:List<AlertPageItem>
+    public class AlertPageGroupItem:List<Alert>
     {
         public string Heading { get; set; }
-        public List<AlertPageItem> AlertList => this;
+        public List<Alert> AlertList => this;
     }
 }

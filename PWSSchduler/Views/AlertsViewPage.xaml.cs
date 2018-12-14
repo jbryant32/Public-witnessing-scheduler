@@ -20,9 +20,14 @@ namespace PWSSchduler.Views
 
         public AlertsViewPage ()
 		{
+            
 			InitializeComponent ();
 		}
-      
-      
+        protected async override void OnAppearing()
+        {
+            await this.ViewModel.Init();
+            base.OnAppearing();
+        }
+
     }
 }

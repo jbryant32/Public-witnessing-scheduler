@@ -13,7 +13,7 @@ namespace PWSSchduler.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AlertInfoPage : ContentPage
 	{
-		public AlertInfoPage (AlertPageItem AlertInfo)
+		public AlertInfoPage (Alert AlertInfo)
 		{
 			InitializeComponent ();
 		}

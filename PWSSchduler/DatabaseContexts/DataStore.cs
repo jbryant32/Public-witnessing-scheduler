@@ -11,12 +11,13 @@ namespace PWSSchduler.Model
 {
     public class DataStore
     {
+        //TEMP DATA STORE HOUS
         static SQLiteAsyncConnection OpenAsyncDBConnection { get; set; }
         static string[] MockNotes = new[] {
             "This is to let you know that if there are any scheduling issues the onsite contacts name is Jeffery Ross in the administration office also the table is stored in the back of the Kingdom Hall in the storage closet",
             "If there are any issues contact me at this number (555)555-5555 , when done please place the cart into the back left storage closet of the kingdom hall"
         };
-        static List<Booking>BookingsStore = new List<Booking>() {
+        static List<Booking> BookingsStore = new List<Booking>() {
                 new Booking() { Status="Confirmed", Email="jane.doe@email.com", BookingType = "Cart" , LocationAddress ="77777 El Paseo Dr Palm Desert CA 92211" , LocationName="El Paseo Shopping Plaze", ScheduledDate =DateTime.Today.ToString(),ScheduledStartTime = "08:00am",ScheduledEndTime = "9:00am",Notes= MockNotes[0] },
                 new Booking() {Status="Unconfirmed", Email="jane.doe@email.com", BookingType = "Table" , LocationAddress ="53654 San Pablo  Palm Desert CA 92211" , LocationName="Park Palm Desert", ScheduledDate =DateTime.Parse("01/15/2019").ToString(),ScheduledStartTime = "10:00am",ScheduledEndTime = "9:00am",Notes= MockNotes[1] },
                 new Booking() {Status="Unconfirmed", Email="jane.doe@email.com", BookingType = "Cart" , LocationAddress ="53654 San Pablo  Palm Desert CA 92211" , LocationName="Park Palm Desert", ScheduledDate =DateTime.Parse("02/14/2019").ToString(),ScheduledStartTime = "08:00am",ScheduledEndTime = "9:00am",Notes= MockNotes[1] },
@@ -24,16 +25,35 @@ namespace PWSSchduler.Model
 
 
             };
+        static List<Alert> AlertsStore = new List<Alert>() {
+                    new Alert(){ Content="New Booking For Palm Desert Shopping Mall" , Status="New",Title="New Booking",Condition="UnOpened" },
+                    new Alert(){ Content="New Booking For El Paseo Shopping Center" ,Status="New",Title="New Booking" ,Condition="UnOpened" },
+                     new Alert(){ Content="Booking Updated For Palm Desert Shopping Mall"  ,Status="Old",Title="Booking",Condition="Opened" }
+
+        };
+
         static Dictionary<string, Location> LocationStore = new Dictionary<string, Location>();
         static Dictionary<string, User> UserStore = new Dictionary<string, User>() { { "jason.bryant28@gmail.com", new User() { Email = "jason.bryant28@gmail.com", Password = "password123" } } };
+
+        public DataStore()
+        {
+
+        }
+
+        public async static Task<List<Alert>> GetAlerts()
+        {
+            return await Task.Run(() => AlertsStore);
+        }
+
         //get stored from local storage
         public async static Task<List<Booking>> GetLocalBookings()
         {
             return await Task.Run(() => BookingsStore);
             // return await OpenAsyncDBConnection.QueryAsync<Booking>($"SELECT * FROM [Bookings] WHERE [Email]= ?", UserLogin.CurrentLoggedInUser.ToLower());
         }
-        public async static Task UpdateLocal(List<Booking> Bookings) {
-            await Task.Run(()=>BookingsStore = Bookings);
+        public async static Task UpdateLocal(List<Booking> Bookings)
+        {
+            await Task.Run(() => BookingsStore = Bookings);
         }
         //get stired from backend
         public async static Task<List<Booking>> FetchBookings()
