@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PWSSchduler.CustomControls.AlertItemViewCell"
+             x:Name="This"
+             >
+    <ContentView.Content>
+         
+                <Grid BackgroundColor="AliceBlue" >
+                <Grid.Style>
+                    <Style TargetType="Grid" >
+                        <Style.Triggers>
+                            <DataTrigger TargetType="Grid" Binding="{Binding Source={x:Reference This},Path=isPrestene}" Value="False">
+                                <Setter Property="BackgroundColor" Value="White"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                <Label InputTransparent="True" BackgroundColor="AliceBlue" VerticalOptions="CenterAndExpand" Grid.Column="0" Text="B" TextColor="Gray">
+                        <Label.Style>
+                            <Style TargetType="Label" >
+                                <Style.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference This},Path=isPrestene}" Value="False">
+                                        <Setter Property="BackgroundColor" Value="White"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Label.Style>
+                    </Label>
+                <Label InputTransparent="True" BackgroundColor="AliceBlue" VerticalOptions="CenterAndExpand" Grid.Column="1" Text="{Binding Source={x:Reference This},Path=TextContent}" TextColor="Black">
+                    <Label.Style>
+                        <Style TargetType="Label" >
+                            <Style.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference This},Path=isPrestene}" Value="False">
+                                    <Setter Property="BackgroundColor" Value="White"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Grid>
+         
+     
+    </ContentView.Content>
+</ContentView>

@@ -1,5 +1,4 @@
 ﻿using PWSSchduler.Model;
-using PWSSchduler.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,17 +11,15 @@ using Xamarin.Forms.Xaml;
 namespace PWSSchduler.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AlertsViewPage : ContentPage
+	public partial class AlertInfoPage : ContentPage
 	{
-        private AlertViewModel _ViewModel;
-        public AlertViewModel ViewModel { get => _ViewModel ?? new AlertViewModel(); set { _ViewModel = value; } }
-       
-
-        public AlertsViewPage ()
+		public AlertInfoPage (AlertPageItem AlertInfo)
 		{
 			InitializeComponent ();
 		}
-      
-      
+        public AlertInfoPage()
+        {
+            InitializeComponent();
+        }
     }
 }

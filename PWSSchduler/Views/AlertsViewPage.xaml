@@ -4,53 +4,27 @@
              x:Class="PWSSchduler.Views.AlertsViewPage"
              xmlns:customContols="clr-namespace:PWSSchduler.CustomControls"
              xmlns:viewModels="clr-namespace:PWSSchduler.ViewModels"
+             xmlns:customTrigger ="clr-namespace:PWSSchduler.EventTriggers"
              xmlns:models="clr-namespace:PWSSchduler.Model"
-             Title="New Notifications">
-    <ContentPage.BindingContext>
-        <viewModels:AlertViewModel x:Name="ViewModel"/>
-    </ContentPage.BindingContext>
+             Title="New Notifications"
+             x:Name="This"
+             >
+   
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding AlertListItems}" ItemTapped="ListView_ItemTapped" SelectionMode="None" BackgroundColor="White" IsGroupingEnabled="True">
-             
+        <ListView ItemsSource="{Binding Source={x:Reference This},Path=ViewModel.AlertListItems}" SelectionMode="None" BackgroundColor="White" IsGroupingEnabled="True" >
             <ListView.GroupHeaderTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding Heading}"/>
+                        <Label VerticalOptions="CenterAndExpand" FontSize="24" Text="{Binding Heading}"/>
                     </ViewCell>
                 </DataTemplate>
             </ListView.GroupHeaderTemplate>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="20"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.Style>
-                                <Style TargetType="Grid">
-                                    <Style.Triggers>
-                                        <DataTrigger TargetType="Grid" Binding="{Binding Heading}" Value="New">
-                                            <Setter Property="BackgroundColor" Value="SkyBlue"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Grid.Style>
-                            <Label VerticalTextAlignment="Center" Grid.Column="0" Text="B" TextColor="Gray">
-                                <Label.Style>
-                                    <Style TargetType="Label" >
-                                        <Style.Triggers>
-                                            <DataTrigger TargetType="Label" Binding="{Binding Heading}" Value="Old">
-                                                <Setter Property="BackgroundColor" Value="White"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Label.Style>
-                            </Label>
-                            <Label VerticalOptions="Center" Grid.Column="1" Text="{Binding Content}" TextColor="Black"/>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
+
+                    <customContols:AlertViewCell  ViewCellTappedCommand="{Binding Source={Reference This},Path=ViewModel.AlertTappedCommand}" ViewCellContext="{Binding .}"  TextContent="{Binding Content}" />
+                 
+                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
     </ContentPage.Content>
