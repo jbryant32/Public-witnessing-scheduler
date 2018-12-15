@@ -35,10 +35,16 @@
     <EmbeddedResource Update="CustomControls\AlertViewCell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="CustomControls\BaseContentViewTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="CustomControls\BookingDetailViewRowItem.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="CustomControls\BookingDetailViewTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CustomControls\BookingItemViewCellTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="CustomControls\BookingViewCellTemplate.xaml">
@@ -114,6 +120,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="CustomControls\BaseContentViewTemplate.xaml.cs">
+      <DependentUpon>BaseContentViewTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Update="CustomControls\BookingDetailViewTemplate.xaml.cs">
       <DependentUpon>BookingDetailViewTemplate.xaml</DependentUpon>
     </Compile>

@@ -30,7 +30,7 @@
             <converters:DateTimeToDateMMDDYYConverter x:Key="DateTimeToDateMMDDYYConverter"/>
             <converters:DateTimeToDateMMDDConverter x:Key="DateTimeToDateMMDDConverter"/>
             <converters:TotalAlertsToBoolConverter x:Key="TotalAlertsToBoolConverter"/>
-
+            <converters:BooleanToOppositeBooleanConverter x:Key="BooleanToOppositeBooleanConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

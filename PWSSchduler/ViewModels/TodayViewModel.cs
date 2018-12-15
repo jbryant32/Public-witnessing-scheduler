@@ -1,4 +1,5 @@
 ﻿using PWSSchduler.Model;
+using PWSSchduler.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,28 +8,32 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace PWSSchduler.ViewModels
 {
-    public class TodayViewModel:ViewModel 
+    public class TodayViewModel:ModelBase
     {
         ObservableCollection<Booking> _Bookings = new ObservableCollection<Booking>();
-        public ObservableCollection<Booking> Bookings { get { return _Bookings; } set { _Bookings = value;  } }
+        public ObservableCollection<Booking> Bookings { get { return _Bookings; } set { OnPropertyChanging(); _Bookings = value; OnPropertyChanged();  } }
+        public ICommand _OpenBookingDetailCommand = new Command(()=> { });
+        public ICommand OpenBookingDetailCommand { get => OpenBookingDetailCommand; set {  OpenBookingDetailCommand = value;  } }
 
          public TodayViewModel()
         {
+           
             if (Bookings.Count > 0) {
                 Bookings.Clear();
             }
         }
-
-
-        public async Task<Booking[]> LoadBookings()
-        {
-            throw new NotImplementedException();
+        public async void OnOpenBookingDetail(object booking) {
+            var _booking = (Booking)booking;
+            await Application.Current.MainPage.Navigation.PushAsync(new BookingItemDetailPage(_booking), true);
         }
+
         public async Task SimulateHttpGet()
-        {
+        {  
             if (Bookings.Count > 0)
             {
                 Bookings.Clear();
@@ -42,8 +47,8 @@ namespace PWSSchduler.ViewModels
                 }
 
             });
-            this.PageBusy = false;
-            this.PageInputEnabled = true;
+       
+            isActive = false;
            
         }
     }

@@ -7,6 +7,7 @@
              x:Class="PWSSchduler.Views.TodayPage"
              Title="Scheduled Today"
              BackgroundColor="White"
+             x:Name="This"
              >
     <ContentPage.Resources>
         <Style TargetType="Label">
@@ -14,21 +15,19 @@
         </Style>
     </ContentPage.Resources>
    
-    <ContentPage.BindingContext>
-        <viewModels:TodayViewModel x:Name="viewModel"/>
-    </ContentPage.BindingContext>
+   
     <ContentPage.Content>
-        <customControls:DefaultViewTemplate PageIsBusy="{Binding PageBusy}"  IndicatorRunning="{Binding PageBusy}" PageInputEnabled="{Binding PageInputEnabled}">
-            <ListView BackgroundColor="White" HasUnevenRows="True" ItemTapped="ListView_ItemTapped" SelectionMode="None" ItemsSource="{Binding Bookings}">
+        <customControls:BaseContentViewTemplate isActive="{Binding Source={x:Reference This},Path=ViewModel.isActive}">
+            <ListView BackgroundColor="White" HasUnevenRows="True" ItemTapped="ListView_ItemTapped"  SelectionMode="None" ItemsSource="{Binding Source={x:Reference This},Path=ViewModel.Bookings}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <customControls:BookingViewCellTemplate Email="{Binding Email}" LocationName="{Binding LocationName}"  ScheduledStartTime="{Binding ScheduledStartTime }"/>
-                        </ViewCell>
-                    </DataTemplate>
+
+                        <customControls:BookingItemViewCellTemplate />
+                       
+                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </customControls:DefaultViewTemplate>
+        </customControls:BaseContentViewTemplate>
 
     </ContentPage.Content>
 </ContentPage>

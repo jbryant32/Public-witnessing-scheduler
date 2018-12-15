@@ -13,15 +13,20 @@ namespace PWSSchduler.Model
     public class ModelBase : INotifyPropertyChanged, INotifyCollectionChanged, INotifyPropertyChanging,IDisposable
     {
         bool _isDirty;
-        public bool isDirty { get=>_isDirty; set { _isDirty = value; this.OnPropertyChanged(); } }
-
+        public bool isDirty { get=>_isDirty; set { this.OnPropertyChanging(); _isDirty = value; this.OnPropertyChanged(); } }
+        bool _isActive = true;
+        public bool isActive { get => _isActive; set { this.OnPropertyChanging(); _isActive = value; this.OnPropertyChanged(); } }
+        bool _isRunning;
+        public bool isRunning { get => _isRunning; set { this.OnPropertyChanging(); _isRunning = value; this.OnPropertyChanged(); } }
         public event PropertyChangedEventHandler PropertyChanged;
         public event NotifyCollectionChangedEventHandler CollectionChanged;
         public event PropertyChangingEventHandler PropertyChanging;
+
         public ModelBase()
         {
-            PropertyChanged += OnPropertyChanged;
+            PropertyChanged += OnPropertyChanged;//Needed for serializing
         }
+
         public virtual async Task Init() {
         }
         protected virtual void OnPropertyChanged(object sender, PropertyChangedEventArgs e)

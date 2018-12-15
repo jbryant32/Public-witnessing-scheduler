@@ -12,20 +12,21 @@ using Xamarin.Forms.Xaml;
 
 namespace PWSSchduler.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class TodayPage : ContentPage
-	{
-      
- 
-         public TodayPage ()
-		{
-			InitializeComponent ();
-		}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class TodayPage : ContentPage
+    {
+        TodayViewModel _ViewModel = new TodayViewModel();
+        public TodayViewModel ViewModel { get => _ViewModel; set => _ViewModel = value; }
+
+        public TodayPage()
+        {
+            InitializeComponent();
+        }
 
         protected async override void OnAppearing()
         {
-            await this.viewModel.SimulateHttpGet();
-       
+            await this.ViewModel.SimulateHttpGet();
+
             base.OnAppearing();
         }
 
