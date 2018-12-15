@@ -24,8 +24,10 @@ namespace PWSSchduler.ViewModels
         }
         public async override Task Init()
         {
+            AlertListItems.Clear();
             var Results = await DataStore.GetAlerts();
             var ListNew = new AlertPageGroupItem();
+
             ListNew.AddRange(Results.Where((a) => a.Status == "New"));
             ListNew.Heading = "New";
 

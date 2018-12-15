@@ -30,27 +30,18 @@
                         </Label>
                     </RelativeLayout>
                 </StackLayout>
-                <StackLayout Grid.Column="1" Orientation="Horizontal">
-                    <Grid RowSpacing="0">
+                <StackLayout Grid.Column="1" Orientation="Horizontal"  >
+                    <Grid   VerticalOptions="Fill">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
-                            <Label TextColor="Gray" Text="Email :"/>
-                            <Label Text="{TemplateBinding Email}"/>
+                        <StackLayout VerticalOptions="Start" Orientation="Horizontal" Grid.Column="0"  >
+                            <Label TextColor="Gray"  Text="Scheduled Time :"/>
+                            <Label   Text="{TemplateBinding ScheduledStartTime}" TextColor="Black"/>
                         </StackLayout>
-                        <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
-                            <Label TextColor="Gray" Grid.Column="0" Grid.Row="1" Text="Scheduled Time :"/>
-                            <Label Grid.Column="1" Grid.Row="1" Text="{TemplateBinding ScheduledStartTime}"/>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="2">
-                            <Label TextColor="Gray" Grid.Column="0" Grid.Row="1" Text="Location Name :" LineBreakMode="NoWrap"/>
-                            <Label Grid.Column="1" Grid.Row="1" Text="{TemplateBinding LocationName}" LineBreakMode="TailTruncation"/>
+                        <StackLayout VerticalOptions="End" Orientation="Horizontal" Grid.Column="0" >
+                            <Label TextColor="Gray"   Text="Location Name :" LineBreakMode="NoWrap"/>
+                            <Label  Text="{TemplateBinding LocationName}" LineBreakMode="TailTruncation" TextColor="Black"/>
                         </StackLayout>
                     </Grid>
                 </StackLayout>
