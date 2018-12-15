@@ -24,7 +24,7 @@ namespace PWSSchduler.Views
         bool _IndicatorRunning;
         public bool IndicatorRunning { get => _IndicatorRunning; set { OnPropertyChanged(nameof(IndicatorRunning)); _IndicatorRunning = value; } }
         Booking _booking;
-        public Booking booking { get => _booking ?? new Booking(); set { OnPropertyChanged(nameof(booking)); _booking = value; } }
+        public Booking booking { get => _booking; set { OnPropertyChanging(); _booking = value; OnPropertyChanged(); } }
         public PendingBookingsDetailPage(Booking booking)
         {
             InitializeComponent();

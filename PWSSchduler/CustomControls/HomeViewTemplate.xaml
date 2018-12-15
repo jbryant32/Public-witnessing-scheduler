@@ -32,10 +32,11 @@
                                     </Style>
                                 </Image.Style>
                                 <Image.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={x:Reference This},Path=}"/>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                          Command="{Binding Source={x:Reference This},Path=OpenAlertViewPageCommand}"/>
                                 </Image.GestureRecognizers>
                             </Image>
-                            <BoxView BackgroundColor="Red" CornerRadius="100"  >
+                            <BoxView BackgroundColor="Red" CornerRadius="100" InputTransparent="True" >
                                 <BoxView.Style>
                                     <Style TargetType="BoxView">
                                         <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression Factor=.4,Property=Width,Type=RelativeToParent}"/>

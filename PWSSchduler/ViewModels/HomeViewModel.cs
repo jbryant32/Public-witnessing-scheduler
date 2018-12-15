@@ -30,9 +30,12 @@ namespace PWSSchduler.ViewModels
         public Command CommandOpenPending { get => _CommandOpenPending ?? new Command(OnPendingButtonClicked); set => _CommandOpenPending = value; }
         Command _CommandOpenScheduled;
         public Command CommandOpenScheduled { get => _CommandOpenScheduled ?? new Command(OnScheduledButtonClicked); set => _CommandOpenScheduled = value; }
+
+
         Command _CommandOpenSendRequest;
         public Command CommandOpenSendRequest { get => _CommandOpenSendRequest ?? new Command(OnSendingButtonClicked); set => _CommandOpenSendRequest = value; }
-        public Command CommandTappedBell { get => _CommandTappedBell ?? new Command(OnTappedBellIcon); set => _CommandTappedBell = value; }
+        public Command CommandTappedBell
+        { get => _CommandTappedBell ?? new Command(OnTappedBellIcon); set => _CommandTappedBell = value; }
         Command _CommandTappedBell;
         #endregion
 

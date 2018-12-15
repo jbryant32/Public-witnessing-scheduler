@@ -5,24 +5,13 @@
              xmlns:models="clr-namespace:PWSSchduler.Model"
              BackgroundColor="White"
              xmlns:customControls ="clr-namespace:PWSSchduler.CustomControls"
+             x:Name="This"
              Title="Booking Details">
- 
-    <ContentPage.Content>
-        <customControls:BookingDetailView VerticalOptions="FillAndExpand"  
-                                           
-                                             Status="{Binding Status}" 
-                                             BookingType="{Binding BookingType}" 
-                                             Email="{Binding Email}" 
-                                             LocationAddress="{Binding LocationAddress}" 
-                                             LocationName="{Binding LocationName}" 
-                                             ScheduledDate="{Binding ScheduledDate}"
-                                             ScheduledStartTime="{Binding ScheduledStartTime}"
-                                             Notes="{Binding Notes}"
-                                             PageIsBusy="False"
-                                             ActivityMessage=""
-                                             IndicatorRunning="False"
-                                             >
+
+  <ContentPage.Content>
+        <StackLayout Margin="10">
+            <customControls:BookingDetailView BindingContext="{Binding Source={x:Reference This},Path=booking}" VerticalOptions="FillAndExpand" />
             <Button TextColor="White" Text="View Images" HorizontalOptions="FillAndExpand" BackgroundColor="SkyBlue" Clicked="ViewGallery_Button_Clicked"></Button>
-        </customControls:BookingDetailView>
-    </ContentPage.Content>
+        </StackLayout>
+  </ContentPage.Content>
 </ContentPage>

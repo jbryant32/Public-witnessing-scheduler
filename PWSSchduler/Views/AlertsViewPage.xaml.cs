@@ -14,8 +14,8 @@ namespace PWSSchduler.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AlertsViewPage : ContentPage
 	{
-        private AlertViewModel _ViewModel;
-        public AlertViewModel ViewModel { get => _ViewModel ?? new AlertViewModel(); set { _ViewModel = value; } }
+        private AlertViewModel _ViewModel=new AlertViewModel();
+        public AlertViewModel ViewModel { get => _ViewModel; set { _ViewModel = value; } }
        
 
         public AlertsViewPage ()

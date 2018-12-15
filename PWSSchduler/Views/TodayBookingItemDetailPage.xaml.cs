@@ -14,12 +14,14 @@ namespace PWSSchduler.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BookingItemDetailPage : ContentPage
 	{
+        public Booking _booking;
+        public Booking booking { get=>_booking; set { OnPropertyChanging(); _booking = value;OnPropertyChanged(); } }
         
-		public BookingItemDetailPage (Booking Context)
+		public BookingItemDetailPage (Booking booking)
 		{
-            
+            this.booking = booking;
             InitializeComponent ();
-            this.Content.BindingContext = Context;
+          
         }
 
         public BookingItemDetailPage()

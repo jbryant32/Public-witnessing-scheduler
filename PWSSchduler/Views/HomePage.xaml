@@ -18,7 +18,7 @@
 
     <ContentPage.Content>
         <customControls:HomeViewTemplate 
-            TapCommand="{Binding Source={x:Reference This},Path=ViewModel.CommandTappedBell}"
+            OpenAlertViewPageCommand="{Binding Source={x:Reference This},Path=ViewModel.CommandTappedBell}"
             CurrentDate="{Binding Source={x:Reference This},Path=ViewModel.CurrentDateTime}" 
             TotalAlerts="{Binding Source={x:Reference This},Path=ViewModel.Alerts.Count}" >
             <ScrollView HorizontalOptions="Fill" Padding="10">

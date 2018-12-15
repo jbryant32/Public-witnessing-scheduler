@@ -3,34 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PWSSchduler.Views.PendingBookingsDetailPage"
              xmlns:customControl ="clr-namespace:PWSSchduler.CustomControls"
-             x:Name="ThisCP"
+             x:Name="This"
              Title="Pending Booking">
 
     <ContentPage.Content >
 
-        <StackLayout VerticalOptions="FillAndExpand" >
-            
-            <customControl:BookingDetailView BindingContext="{x:Reference ThisCP}" VerticalOptions="FillAndExpand"  
-                                             Status="{Binding booking.Status}" 
-                                             BookingType="{Binding booking.BookingType}" 
-                                             Email="{Binding booking.Email}" 
-                                             LocationAddress="{Binding booking.LocationAddress}" 
-                                             LocationName="{Binding booking.LocationName}" 
-                                             ScheduledDate="{Binding booking.ScheduledDate}"
-                                             ScheduledStartTime="{Binding booking.ScheduledStartTime}"
-                                             Notes="{Binding booking.Notes}"
-                                             PageIsBusy="{Binding PageBusy}"
-                                             ActivityMessage="{Binding IsBusyMessage}"
-                                             IndicatorRunning="{Binding IndicatorRunning}"
-                                             >
-              
-                
-                <StackLayout Orientation="Horizontal" Margin="10" >
+        <StackLayout VerticalOptions="FillAndExpand" Margin="10" >
+
+            <customControl:BookingDetailView BindingContext="{Binding Source={x:Reference This},Path=booking}" VerticalOptions="FillAndExpand" />
+            <StackLayout Orientation="Horizontal"   >
                     <Button   BackgroundColor="#71b8ff" TextColor="White" Text="Confirm" HorizontalOptions="FillAndExpand" Clicked="ButtonConfirmed_Clicked"></Button>
                     <Button x:Name="ButtonCanceled" BackgroundColor="#ff6464" TextColor="White" Text="Cancel" HorizontalOptions="FillAndExpand" Clicked="ButtonCanceled_Clicked"></Button>
                 </StackLayout>
-               
-            </customControl:BookingDetailView>
+
+
+
         </StackLayout>
 
     </ContentPage.Content>
