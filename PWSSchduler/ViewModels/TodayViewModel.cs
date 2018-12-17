@@ -17,10 +17,11 @@ namespace PWSSchduler.ViewModels
     {
         ObservableCollection<Booking> _Bookings = new ObservableCollection<Booking>();
         public ObservableCollection<Booking> Bookings { get { return _Bookings; } set { OnPropertyChanging(); _Bookings = value; OnPropertyChanged();  } }
-        public ICommand _OpenBookingDetailCommand = new Command(()=> { });
-        public ICommand OpenBookingDetailCommand { get => OpenBookingDetailCommand; set {  OpenBookingDetailCommand = value;  } }
+        public ICommand _OpenBookingDetailCommand = new Command(() => { });
+        public ICommand OpenBookingDetailCommand { get => OpenBookingDetailCommand; set { OpenBookingDetailCommand = value; } }
+ 
 
-         public TodayViewModel()
+        public TodayViewModel()
         {
            
             if (Bookings.Count > 0) {
@@ -29,7 +30,7 @@ namespace PWSSchduler.ViewModels
         }
         public async void OnOpenBookingDetail(object booking) {
             var _booking = (Booking)booking;
-            await Application.Current.MainPage.Navigation.PushAsync(new BookingItemDetailPage(_booking), true);
+            await Application.Current.MainPage.Navigation.PushAsync(new TodayBookingItemDetailPage(_booking), true);
         }
 
         public async Task SimulateHttpGet()

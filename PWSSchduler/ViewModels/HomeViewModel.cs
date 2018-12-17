@@ -45,7 +45,7 @@ namespace PWSSchduler.ViewModels
         }
         public async override Task Init()
         {
-            
+            Alerts.Clear();
             var Results = await DataStore.GetAlerts();
             foreach (var alert in Results)
             {

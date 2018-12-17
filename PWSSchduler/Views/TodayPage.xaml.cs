@@ -34,7 +34,7 @@ namespace PWSSchduler.Views
         {
             var SelectedItem = (e.Item as Booking);
             var List = sender as ListView;
-            await Navigation.PushAsync(new BookingItemDetailPage(SelectedItem), true);
+            await Navigation.PushAsync(new TodayBookingItemDetailPage(SelectedItem), true);
         }
     }
 }

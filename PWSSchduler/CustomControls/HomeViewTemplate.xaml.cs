@@ -17,11 +17,12 @@ namespace PWSSchduler.CustomControls
         public DateTime CurrentDate { get => (DateTime)GetValue(CurrentDateProperty); set => SetValue(CurrentDateProperty, value); }
         public static readonly BindableProperty CurrentDateProperty = BindableProperty.Create(nameof(CurrentDate), typeof(DateTime), typeof(HomeViewTemplate), null);
         public int TotalAlerts { get => (int)GetValue(TotalAlertsProperty); set => SetValue(TotalAlertsProperty, value); }
-        public static readonly BindableProperty TotalAlertsProperty = BindableProperty.Create(nameof(TotalAlerts), typeof(int), typeof(HomeViewTemplate), null);
+        public static readonly BindableProperty TotalAlertsProperty = BindableProperty.Create(nameof(TotalAlerts), typeof(int), typeof(HomeViewTemplate), 0);
 
         public HomeViewTemplate ()
 		{
 			InitializeComponent ();
 		}
+        
 	}
 }

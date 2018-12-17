@@ -2,6 +2,7 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PWSSchduler.CustomControls.HomeViewTemplate"
+             xmlns:ext="clr-namespace:PWSSchduler.Extentions"
              x:Name="This">
     <ContentView.ControlTemplate>
         <ControlTemplate>
@@ -24,23 +25,32 @@
 
                     <StackLayout x:Name="StackLayoutBellIcon"  Grid.Column="2">
                         <RelativeLayout Grid.Column="0" >
-                            <Image   WidthRequest="45" HeightRequest="45"  HorizontalOptions="Center" Aspect="AspectFit" VerticalOptions="Center"  Source="AlertIcon.png" >
-                                <Image.Style>
-                                    <Style TargetType="Image">
+                            <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center"   WidthRequest="45" HeightRequest="45" Text="{ext:FontAwesomeIconsExtention Member='Bell'}" TextColor="White"      >
+                                <Label.Style>
+                                    <Style TargetType="Label">
                                         <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression Factor=1,Property=Width,Type=RelativeToParent}"/>
                                         <Setter Property="RelativeLayout.HeightConstraint" Value="{ConstraintExpression Factor=1,Property=Height,Type=RelativeToParent}"/>
+                                        <Setter Property="FontSize" Value="32"/>
                                     </Style>
-                                </Image.Style>
-                                <Image.GestureRecognizers>
+                                </Label.Style>
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String"
+                                            Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
+                                             iOS="Font Awesome 5 Free"/>
+                                </Label.FontFamily>
+                                <Label.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" 
                                                           Command="{Binding Source={x:Reference This},Path=OpenAlertViewPageCommand}"/>
-                                </Image.GestureRecognizers>
-                            </Image>
+                                </Label.GestureRecognizers>
+                            </Label>
                             <BoxView BackgroundColor="Red" CornerRadius="100" InputTransparent="True" >
                                 <BoxView.Style>
                                     <Style TargetType="BoxView">
-                                        <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression Factor=.4,Property=Width,Type=RelativeToParent}"/>
-                                        <Setter Property="RelativeLayout.HeightConstraint" Value="{ConstraintExpression Factor=.4,Property=Width,Type=RelativeToParent}"/>
+                                        <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression Factor=.35,Property=Width,Type=RelativeToParent}"/>
+                                        <Setter Property="RelativeLayout.HeightConstraint" Value="{ConstraintExpression Factor=.35,Property=Width,Type=RelativeToParent}"/>
+                                       
+                                        <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Factor=.1,Property=Height,Type=RelativeToParent}"/>
+                                        <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Factor=.1,Property=Width,Type=RelativeToParent}"/>
 
                                     </Style>
                                 </BoxView.Style>
@@ -48,15 +58,17 @@
                             <Label x:Name="LabelTotalAlerts" 
                                    VerticalTextAlignment="Center" 
                                    HorizontalTextAlignment="Center" 
-                                   FontSize="22"  Text="3"
+                                   FontSize="22"  Text="{Binding Source={x:Reference This},Path=TotalAlerts}"
                                    FontAttributes="Bold" 
                                    TextColor="White">
                                 <Label.Style>
                                     <Style TargetType="Label">
                                         <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression Factor=.35,Property=Width,Type=RelativeToParent}"/>
                                         <Setter Property="RelativeLayout.HeightConstraint" Value="{ConstraintExpression Factor=.4,Property=Height,Type=RelativeToParent}"/>
-                                        <Setter Property="IsVisible" Value="{TemplateBinding Converter={x:StaticResource Key=TotalAlertsToBoolConverter},TotalAlerts}"/>
-                                        <Setter Property="IsVisible" Value="{TemplateBinding Converter={x:StaticResource Key=TotalAlertsToBoolConverter},TotalAlerts}"/>
+                                        <!--<Setter Property="IsVisible" Value="{TemplateBinding Converter={x:StaticResource Key=TotalAlertsToBoolConverter},TotalAlerts}"/>
+                                        <Setter Property="IsVisible" Value="{TemplateBinding Converter={x:StaticResource Key=TotalAlertsToBoolConverter},TotalAlerts}"/>-->
+                                        <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Factor=.1,Property=Height,Type=RelativeToParent}"/>
+                                        <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Factor=.09,Property=Width,Type=RelativeToParent}"/>
                                     </Style>
                                 </Label.Style>
                             </Label>

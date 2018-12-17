@@ -1,5 +1,6 @@
 ﻿using PWSSchduler.CustomControls;
 using PWSSchduler.Model;
+using PWSSchduler.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,19 +13,20 @@ using Xamarin.Forms.Xaml;
 namespace PWSSchduler.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class BookingItemDetailPage : ContentPage
+	public partial class TodayBookingItemDetailPage : ContentPage
 	{
-        public Booking _booking;
-        public Booking booking { get=>_booking; set { OnPropertyChanging(); _booking = value;OnPropertyChanged(); } }
-        
-		public BookingItemDetailPage (Booking booking)
+        public TodayBookingItemDetailViewModel _ViewModel = new TodayBookingItemDetailViewModel();
+        public TodayBookingItemDetailViewModel ViewModel { get => _ViewModel; set => _ViewModel = value; }
+
+        public TodayBookingItemDetailPage (Booking booking)
 		{
-            this.booking = booking;
+
+            ViewModel.booking = booking;
             InitializeComponent ();
           
         }
 
-        public BookingItemDetailPage()
+        public TodayBookingItemDetailPage()
         {
             	InitializeComponent ();
         }

@@ -9,11 +9,15 @@
              BackgroundColor="White"
              x:Name="This"
              >
-    <ContentPage.Resources>
+    <ContentPage.Resources >
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="Black"/>
         </Style>
-    </ContentPage.Resources>
+        <ResourceDictionary x:Key="CustomResources">
+          
+
+        </ResourceDictionary>
+     </ContentPage.Resources>
    
    
     <ContentPage.Content>
@@ -21,10 +25,8 @@
             <ListView BackgroundColor="White" HasUnevenRows="True" ItemTapped="ListView_ItemTapped"  SelectionMode="None" ItemsSource="{Binding Source={x:Reference This},Path=ViewModel.Bookings}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-
                         <customControls:BookingItemViewCellTemplate />
-                       
-                     </DataTemplate>
+                    </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </customControls:BaseContentViewTemplate>

@@ -4,6 +4,7 @@
              xmlns:effects="clr-namespace:PWSSchduler.Droid"
              xmlns:converters="clr-namespace:PWSSchduler.Converters"
              xmlns:customControls="clr-namespace:PWSSchduler.CustomControls"
+             xmlns:customExtentions ="clr-namespace:PWSSchduler.Extentions"
              x:Class="PWSSchduler.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -31,6 +32,9 @@
             <converters:DateTimeToDateMMDDConverter x:Key="DateTimeToDateMMDDConverter"/>
             <converters:TotalAlertsToBoolConverter x:Key="TotalAlertsToBoolConverter"/>
             <converters:BooleanToOppositeBooleanConverter x:Key="BooleanToOppositeBooleanConverter"/>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="IconsResource">
+            <customExtentions:FontAwesomeIconsExtention x:Key="FontIcon"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

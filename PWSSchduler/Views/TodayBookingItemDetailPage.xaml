@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PWSSchduler.Views.BookingItemDetailPage"
+             x:Class="PWSSchduler.Views.TodayBookingItemDetailPage"
              xmlns:models="clr-namespace:PWSSchduler.Model"
              BackgroundColor="White"
              xmlns:customControls ="clr-namespace:PWSSchduler.CustomControls"
@@ -10,7 +10,9 @@
 
   <ContentPage.Content>
         <StackLayout Margin="10">
-            <customControls:BookingDetailView BindingContext="{Binding Source={x:Reference This},Path=booking}" VerticalOptions="FillAndExpand" />
+            <customControls:BookingDetailView BindingContext="{Binding Source={x:Reference This},Path=ViewModel.booking}" 
+                                              TapCommand="{Binding Source={x:Reference This},Path=ViewModel.OpenMapDetailCommand}" 
+                                              VerticalOptions="FillAndExpand" />
             <Button TextColor="White" Text="View Images" HorizontalOptions="FillAndExpand" BackgroundColor="SkyBlue" Clicked="ViewGallery_Button_Clicked"></Button>
         </StackLayout>
   </ContentPage.Content>

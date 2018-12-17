@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PWSSchduler.CustomControls.BookingDetailView"
              xmlns:customControls="clr-namespace:PWSSchduler.CustomControls"
+             xmlns:ext ="clr-namespace:PWSSchduler.Extentions"
               BackgroundColor="White"
              x:Name="This"
              >
@@ -13,7 +14,19 @@
             <StackLayout>
                 <customControls:BookingDetailViewRowItem Info="{Binding Email}" Title="Email :" />
                 <customControls:BookingDetailViewRowItem Info="{Binding Status}" Title="Status :" />
-                <customControls:BookingDetailViewRowItem Info="{Binding LocationName}" Title="Location :" />
+                <StackLayout Orientation="Horizontal">
+                    <customControls:BookingDetailViewRowItem Info="{Binding LocationName}" Title="Location :"/>
+                    <Label HorizontalOptions="Start"  FontSize="24" HorizontalTextAlignment="Start" Text="{ext:FontAwesomeIconsExtention Member='Map'}" TextColor="Gray" >
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String"
+                                            Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
+                                             iOS="Font Awesome 5 Free"/>
+                        </Label.FontFamily>
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={x:Reference This},Path=TapCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
                 <customControls:BookingDetailViewRowItem Info="{Binding LocationAddress}" Title="Location Address :" />
                 <customControls:BookingDetailViewRowItem Info="{Binding ScheduledDate}" Title="Scheduled Date :" />
                 <customControls:BookingDetailViewRowItem Info="{Binding ScheduledStartTime}" Title="Scheduled Time :" />

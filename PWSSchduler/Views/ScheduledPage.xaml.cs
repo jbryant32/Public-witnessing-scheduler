@@ -27,7 +27,7 @@ namespace PWSSchduler.Views
 
         private async void ListScheduledBookings_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            await Navigation.PushAsync(new BookingItemDetailPage(e.Item as Booking));
+            await Navigation.PushAsync(new TodayBookingItemDetailPage(e.Item as Booking));
         }
     }
 }

@@ -21,6 +21,8 @@ namespace PWSSchduler.Droid
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             CarouselViewRenderer.Init();
+            Xamarin.FormsMaps.Init(this, savedInstanceState);
+
 
             LoadApplication(new App());
         }
