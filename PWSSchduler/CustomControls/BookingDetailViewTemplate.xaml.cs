@@ -13,9 +13,7 @@ namespace PWSSchduler.CustomControls
     public partial class BookingDetailView : ContentView
     {
 
-        #region Booking Detail Bindings
-       
-        #endregion
+ 
 
         #region Activity Indicator Bindings
         public string ActivityMessage { get=>(string)GetValue(ActivityMessageProperty); set =>SetValue(ActivityMessageProperty,value); }
@@ -33,7 +31,7 @@ namespace PWSSchduler.CustomControls
         {
           
             InitializeComponent();
-          
+           
         }
     }
 }

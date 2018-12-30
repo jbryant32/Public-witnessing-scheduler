@@ -8,6 +8,9 @@
              x:Class="PWSSchduler.App">
     <Application.Resources>
         <ResourceDictionary>
+            <Color x:Key='ColorBlue'>#59b3f4</Color>
+        </ResourceDictionary>
+        <ResourceDictionary>
             <Style  TargetType="Label" x:Key="LabelHeaderIcon">
                 <Setter Property="TextColor" Value="Gray"></Setter>
                 <Setter Property="FontSize" Value="42"></Setter>

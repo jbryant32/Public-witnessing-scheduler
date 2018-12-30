@@ -8,24 +8,34 @@
         <ControlTemplate>
             <StackLayout VerticalOptions="EndAndExpand">
                 <ContentPresenter/>
-                <Grid  >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="80"/>
+                <StackLayout Orientation="Horizontal" BackgroundColor="#59b3f4" VerticalOptions="End" HorizontalOptions="FillAndExpand" Padding="10,10,0,10"  >
 
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <BoxView x:Name="BoxViewRedCircle" Grid.Column="0" Grid.ColumnSpan="3"  BackgroundColor="#59b3f4" HeightRequest="60"    >
+                    <StackLayout WidthRequest="100"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="StartAndExpand" >
+                        <Label x:Name="LabelCurrentDateTime" 
+                               Text="{Binding Converter={x:StaticResource Key=DateTimeToDateMMDDConverter}, Source={x:Reference This},Path=CurrentDate}" >
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="HorizontalOptions" Value="Fill"/>
+                                    <Setter Property="VerticalOptions" Value="Fill"/>
+                                    <Setter Property="VerticalTextAlignment" Value="Center"/>
+                                    <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                                    <Setter Property="FontAttributes" Value="Bold"/>
+                                    <Setter Property="FontSize" Value="20"/>
+                                    <Setter Property="TextColor" Value="White"/>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                    </StackLayout>
 
-                    </BoxView>
-
-
-                    <StackLayout x:Name="StackLayoutBellIcon"  Grid.Column="2">
-                        <RelativeLayout Grid.Column="0" >
-                            <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center"   WidthRequest="45" HeightRequest="45" Text="{ext:FontAwesomeIconsExtention Member='Bell'}" TextColor="White"      >
+                    <StackLayout x:Name="StackLayoutBellIcon"
+                                 HorizontalOptions="End"
+                                 HeightRequest="45"
+                                 WidthRequest="75"  >
+                        <RelativeLayout >
+                            <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center"   
+                                   WidthRequest="45" HeightRequest="45" Text="{ext:FontAwesomeIconsExtention Member='Bell'}" TextColor="White">
                                 <Label.Style>
                                     <Style TargetType="Label">
                                         <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression Factor=1,Property=Width,Type=RelativeToParent}"/>
@@ -48,7 +58,7 @@
                                     <Style TargetType="BoxView">
                                         <Setter Property="RelativeLayout.WidthConstraint" Value="{ConstraintExpression Factor=.35,Property=Width,Type=RelativeToParent}"/>
                                         <Setter Property="RelativeLayout.HeightConstraint" Value="{ConstraintExpression Factor=.35,Property=Width,Type=RelativeToParent}"/>
-                                       
+
                                         <Setter Property="RelativeLayout.XConstraint" Value="{ConstraintExpression Factor=.1,Property=Height,Type=RelativeToParent}"/>
                                         <Setter Property="RelativeLayout.YConstraint" Value="{ConstraintExpression Factor=.1,Property=Width,Type=RelativeToParent}"/>
 
@@ -79,20 +89,8 @@
 
 
 
-                    <Label   Grid.Column="0" Grid.ColumnSpan="2" x:Name="LabelCurrentDateTime" 
-                               Text="{Binding Converter={x:StaticResource Key=DateTimeToDateMMDDConverter}, Source={x:Reference This},Path=CurrentDate}" >
-                        <Label.Style>
-                            <Style TargetType="Label">
-                                <Setter Property="VerticalTextAlignment" Value="Center"/>
-                                <Setter Property="HorizontalTextAlignment" Value="Start"/>
-                                <Setter Property="FontAttributes" Value="Bold"/>
-                                <Setter Property="FontSize" Value="22"/>
-                                <Setter Property="TextColor" Value="White"/>
+                </StackLayout>
 
-                            </Style>
-                        </Label.Style>
-                    </Label>
-                </Grid>
             </StackLayout>
         </ControlTemplate>
     </ContentView.ControlTemplate>

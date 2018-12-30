@@ -10,6 +10,8 @@ namespace PWSSchduler.Model
     {
         [AutoIncrement, PrimaryKey, Column("id")]
         public int ID { get; set; }
+        [Column("GID")]
+        public string GID { get; set; }
         [Column("Email")]
         public string Email { get; set; }
         [Column("Booking Type")]

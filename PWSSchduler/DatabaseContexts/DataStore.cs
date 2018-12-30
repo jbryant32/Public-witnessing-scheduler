@@ -18,17 +18,17 @@ namespace PWSSchduler.Model
             "If there are any issues contact me at this number (555)555-5555 , when done please place the cart into the back left storage closet of the kingdom hall"
         };
         static List<Booking> BookingsStore = new List<Booking>() {
-                new Booking() { Status="Confirmed", Email="jane.doe@email.com", BookingType = "Cart" , LocationAddress ="77777 El Paseo Dr Palm Desert CA 92211" , LocationName="El Paseo Shopping Plaze", ScheduledDate =DateTime.Today.ToString(),ScheduledStartTime = "08:00am",ScheduledEndTime = "9:00am",Notes= MockNotes[0] },
-                new Booking() {Status="Unconfirmed", Email="jane.doe@email.com", BookingType = "Table" , LocationAddress ="53654 San Pablo  Palm Desert CA 92211" , LocationName="Park Palm Desert", ScheduledDate =DateTime.Parse("01/15/2019").ToString(),ScheduledStartTime = "10:00am",ScheduledEndTime = "9:00am",Notes= MockNotes[1] },
-                new Booking() {Status="Unconfirmed", Email="jane.doe@email.com", BookingType = "Cart" , LocationAddress ="53654 San Pablo  Palm Desert CA 92211" , LocationName="Park Palm Desert", ScheduledDate =DateTime.Parse("02/14/2019").ToString(),ScheduledStartTime = "08:00am",ScheduledEndTime = "9:00am",Notes= MockNotes[1] },
-                new Booking() {Status="Unconfirmed", Email="john.doe@email.com", BookingType = "Table" , LocationAddress ="48956 HWY 111 Palm Desert CA 92211" , LocationName="Palm Desert Shopping Mall", ScheduledDate =DateTime.Parse("11/29/2018").ToString(),ScheduledStartTime = "08:00am",ScheduledEndTime = "9:00am",Notes="" }
+                new Booking() {GID = "123",Status="Confirmed", Email="jane.doe@email.com", BookingType = "Cart" , LocationAddress ="77777 El Paseo Dr Palm Desert CA 92211" , LocationName="El Paseo Shopping Plaze", ScheduledDate =DateTime.Today.ToString(),ScheduledStartTime = "08:00am",ScheduledEndTime = "9:00am",Notes= MockNotes[0] },
+                new Booking() {GID = "1234",Status="Unconfirmed", Email="jane.doe@email.com", BookingType = "Table" , LocationAddress ="53654 San Pablo  Palm Desert CA 92211" , LocationName="Park Palm Desert", ScheduledDate =DateTime.Parse("01/15/2019").ToString(),ScheduledStartTime = "10:00am",ScheduledEndTime = "9:00am",Notes= MockNotes[1] },
+                new Booking() {GID = "12345",Status="Unconfirmed", Email="jane.doe@email.com", BookingType = "Cart" , LocationAddress ="53654 San Pablo  Palm Desert CA 92211" , LocationName="Park Palm Desert", ScheduledDate =DateTime.Parse("02/14/2019").ToString(),ScheduledStartTime = "08:00am",ScheduledEndTime = "9:00am",Notes= MockNotes[1] },
+                new Booking() {GID = "123456",Status="Unconfirmed", Email="john.doe@email.com", BookingType = "Table" , LocationAddress ="48956 HWY 111 Palm Desert CA 92211" , LocationName="Palm Desert Shopping Mall", ScheduledDate =DateTime.Parse("11/29/2018").ToString(),ScheduledStartTime = "08:00am",ScheduledEndTime = "9:00am",Notes="" }
 
 
             };
         static List<Alert> AlertsStore = new List<Alert>() {
-                    new Alert(){ Content="New Booking For Palm Desert Shopping Mall" , Status="New",Title="New Booking",Condition="UnOpened" },
-                    new Alert(){ Content="New Booking For El Paseo Shopping Center" ,Status="New",Title="New Booking" ,Condition="UnOpened" },
-                     new Alert(){ Content="Booking Updated For Palm Desert Shopping Mall"  ,Status="Old",Title="Booking",Condition="Opened" }
+                    new Alert(){GID = "123", Content="New Booking For Palm Desert Shopping Mall" , Status="New",Title="New Booking",Condition="UnOpened" },
+                    new Alert(){GID = "1234", Content="New Booking For El Paseo Shopping Center" ,Status="New",Title="New Booking" ,Condition="UnOpened" },
+                     new Alert(){GID = "12345", Content="Booking Updated For Palm Desert Shopping Mall"  ,Status="Old",Title="Booking",Condition="Opened" }
 
         };
 

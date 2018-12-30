@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                        xmlns:viewModel ="clr-namespace:PWSSchduler.ViewModels"
+             xmlns:viewModel ="clr-namespace:PWSSchduler.ViewModels"
              xmlns:validators="clr-namespace:FormValidation.Validators;assembly=FormValidation"
-             xmlns:behaviors="clr-namespace:FormValidation.Behaviors;assembly=FormValidation"
-        xmlns:triggers ="clr-namespace:PWSSchduler.EventTriggers"
+             xmlns:triggers ="clr-namespace:PWSSchduler.EventTriggers"
+             xmlns:customControls ="clr-namespace:PWSSchduler.CustomControls"
              x:Class="PWSSchduler.LoginPage"
              Title="Login"
              BackgroundColor="White"
@@ -14,78 +14,15 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-
-        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
-            <StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="SkyBlue">
-                <Label Margin="0,10,0,0"  TextColor="White" FontSize="32" HorizontalTextAlignment="Center" Text="Welcome !"></Label>
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="E" BackgroundColor="{Binding Source={x:StaticResource ColorBlue}}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+                <customControls:EntryAuthView isEmail="True" invalidMessage="This is a fail sir"/>
             </StackLayout>
-            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Padding="20,0,20,0">
-                <StackLayout>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label TextColor="White" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" x:Name="LabelEmail" Text="&#xf2b6;" VerticalOptions="FillAndExpand" HorizontalOptions="Fill"  BackgroundColor="SkyBlue" WidthRequest="100" MinimumWidthRequest="100" >
-                            <Label.FontFamily>
-                                <OnPlatform x:TypeArguments="x:String"
-                                     Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
-                                        iOS="Font Awesome 5 Free"/>
-                            </Label.FontFamily>
-                        </Label>
-                        <Entry   Text="{Binding EntryEmail,Mode=OneWay}"  Unfocused="EntryEmail_Unfocused"  Placeholder="Email" Grid.Column="1" x:Name="EntryEmail" Keyboard="Email"  HorizontalOptions="Fill"    TextColor="Black" PlaceholderColor="Gray" IsSpellCheckEnabled="False">
-                            <Entry.Behaviors>
-                                <behaviors:EntryBehavior IsValid="False" ValidationMessage="Email is not Valid" Validator="{Binding Source={x:Reference ViewModel},Path=EmailBehaviorValidator}"  x:Name="EmailBehaviorValidator"/>
-                            </Entry.Behaviors>
-                            
-                        </Entry>
-                    </Grid>
-                    <Label HorizontalOptions="Center" Text="Email Is In Valid" TextColor="Red" IsVisible="{Binding Source={x:Reference EmailBehaviorValidator},Path=IsVisibleOnValid}"></Label>
-                </StackLayout>
-                <StackLayout  >
-                    <Grid >
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label TextColor="White" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="0" x:Name="LabelPassword" Text="&#xf084;" VerticalOptions="FillAndExpand"  HorizontalOptions="Start"   BackgroundColor="SkyBlue" WidthRequest="100" MinimumWidthRequest="100" >
-                            <Label.FontFamily>
-                                <OnPlatform x:TypeArguments="x:String"
-                                     Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
-                                        iOS="Font Awesome 5 Free"/>
-                            </Label.FontFamily>
-                        </Label>
-
-                        <Entry Placeholder="Password" 
-                           Grid.Column="1" 
-                           x:Name="EntryPassword" 
-                           Keyboard="Text"  
-                           HorizontalOptions="Fill" 
-                           TextColor="Black"
-                           PlaceholderColor="Gray"
-                           IsPassword="True"
-                           IsSpellCheckEnabled="False"
-                          
-                           Unfocused="EntryPassword_Unfocused"
-                           >
-                            <Entry.Behaviors>
-                                <behaviors:EntryBehavior IsValid="False" ValidationMessage="Email is not Valid" Validator="{Binding Source={x:Reference ViewModel},Path=PasswordBehaviorValidator}"  x:Name="PasswordBehaviorValidator"/>
-                            </Entry.Behaviors>
-                        </Entry>
-                    </Grid>
-                    <Label HorizontalOptions="Center" Text="Passowrd Is In Valid" TextColor="Red" IsVisible="{Binding Source={x:Reference PasswordBehaviorValidator},Path=IsVisibleOnValid}"></Label>
-
-                </StackLayout>
-                <StackLayout>
-                    <Button IsEnabled="{Binding LoginEnabled ,Mode=TwoWay}"  
-                          Command="{Binding OnLoginButtonClicked}"
-                            TextColor="White" BackgroundColor="SkyBlue"   Text="Login" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand">
-
-                    </Button>
-                </StackLayout>
-                <Label HorizontalOptions="Center" Text="Login Error Email Or Password Invalid" TextColor="Red" IsVisible="False"></Label>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="P" BackgroundColor="{Binding Source={x:StaticResource ColorBlue}}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+                <customControls:EntryAuthView isEntryPassword="True" invalidMessage="This is a fail sir"/>
             </StackLayout>
-
         </StackLayout>
 
     </ContentPage.Content>

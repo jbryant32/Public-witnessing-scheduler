@@ -10,17 +10,9 @@
         <models:ProfilePageItem x:Name="ViewModel"/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <StackLayout x:Name="StackLayoutHead" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" BackgroundColor="LightGray"  >
-                <Grid  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" SelectionMode="None" ItemTapped="ListView_ItemTapped">
+            <ListView.Header>
+                <Grid  HorizontalOptions="Fill" VerticalOptions="Fill" HeightRequest="200">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -29,69 +21,71 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
+                    <BoxView Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="LightGray" Grid.Row="0" Grid.RowSpan="2" Margin="20" CornerRadius="100"/>
                     <BoxView 
                         CornerRadius="100"
                     HorizontalOptions="CenterAndExpand" 
                     VerticalOptions="CenterAndExpand"  
-                    WidthRequest="150"
-                    HeightRequest="150"
+                    WidthRequest="100"
+                    HeightRequest="100"
                     Grid.Column="0" 
                     Grid.ColumnSpan="2"
                     Grid.Row="0"
-                  
+                    Grid.RowSpan="2"
                     BackgroundColor="White"/>
                     <Image   
                     HorizontalOptions="CenterAndExpand" 
                     VerticalOptions="CenterAndExpand"  
-                    WidthRequest="125"
+                    WidthRequest="85"
                     Grid.Column="0" 
                     Grid.ColumnSpan="2" 
                     Grid.Row="0"
-                   
+                    Grid.RowSpan="2"
                     Source="profileimg.png"/>
-                    <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" SelectionMode="None" ItemTapped="ListView_ItemTapped">
-                        <ListView.ItemsSource>
-                            <x:Array Type="{x:Type models:ProfilePageItem}">
-                                <models:ProfilePageItem PropertyName="KindomHall :" Content="Panaroma Cathedral City" IconImgSrc="&#xf018;" 
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type models:ProfilePageItem}">
+                    <models:ProfilePageItem PropertyName="KindomHall :" Content="Panaroma Cathedral City" IconImgSrc="&#xf018;" 
                                                         Title="KingdomHall"/>
-                                <models:ProfilePageItem PropertyName="Name :" Content="Jane Doe" IconImgSrc="&#xf573;" Title="Name"/>
-                                <models:ProfilePageItem PropertyName="Email :" Content="jane.doe@email.com " IconImgSrc="&#xf0e0;" Title="Name"/>
-                                <models:ProfilePageItem PropertyName="Street :" Content="47892 Vista China" IconImgSrc="&#xf018;" Title="Street"/>
-                                <models:ProfilePageItem PropertyName="City :" Content="Cathedral City" IconImgSrc="&#xf64f;" Title="City"/>
-                                <models:ProfilePageItem PropertyName="Zip Code :" Content="92264" IconImgSrc="&#xf674;" Title="ZipCode"/>
+                    <models:ProfilePageItem PropertyName="Name :" Content="Jane Doe" IconImgSrc="&#xf573;" Title="Name"/>
+                    <models:ProfilePageItem PropertyName="Email :" Content="jane.doe@email.com " IconImgSrc="&#xf0e0;" Title="Name"/>
+                    <models:ProfilePageItem PropertyName="Street :" Content="47892 Vista China" IconImgSrc="&#xf018;" Title="Street"/>
+                    <models:ProfilePageItem PropertyName="City :" Content="Cathedral City" IconImgSrc="&#xf64f;" Title="City"/>
+                    <models:ProfilePageItem PropertyName="Zip Code :" Content="92264" IconImgSrc="&#xf674;" Title="ZipCode"/>
 
-                            </x:Array>
-                        </ListView.ItemsSource>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout Orientation="Horizontal" BackgroundColor="White">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="50"/>
-                                                <ColumnDefinition Width="100"/>
-                                                <ColumnDefinition Width="*"/> 
-                                            </Grid.ColumnDefinitions>
-                                            <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="24" TextColor="Gray" Grid.Column="0" HorizontalOptions="Fill" Text="{Binding IconImgSrc}">
-                                                <Label.FontFamily>
+                </x:Array>
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" BackgroundColor="White">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="24" TextColor="Gray" Grid.Column="0" HorizontalOptions="Fill" Text="{Binding IconImgSrc}">
+                                    <Label.FontFamily>
                                                     <OnPlatform x:TypeArguments="x:String"
                                             Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
                                              iOS="Font Awesome 5 Free"/>
                                                 </Label.FontFamily>
-                                            </Label>
-                                            <Label TextColor="Gray" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Text="{Binding PropertyName}"/>
-                                        </Grid>
-                                        <Label Grid.Column="2" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" TextColor="Black" Text="{Binding Content}" LineBreakMode="TailTruncation"/>
+                                </Label>
+                                <Label TextColor="Gray" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Text="{Binding PropertyName}"/>
+                            </Grid>
+                            <Label Grid.Column="2" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" TextColor="Black" Text="{Binding Content}" LineBreakMode="TailTruncation"/>
 
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-            </StackLayout>
-            
-        </Grid>
+
+
+
+
     </ContentPage.Content>
 </ContentPage>
