@@ -25,6 +25,9 @@ namespace PWSSchduler.Views
             await this.ViewModel.Init();
             base.OnAppearing();
         }
-       
+        public async void onOpenCreatNewAppointment()
+        {
+            await Navigation.PushAsync(new AppoinmentManagerView());
+        }
     }
 }

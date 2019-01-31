@@ -6,8 +6,8 @@
              >
     <ContentView.Content>
         <StackLayout>
-            <Entry IsPassword="{Binding Source={x:Reference This},Path=isEntryPassword}" TextChanged="Entry_TextChanged" Unfocused="Entry_Unfocused" />
-            <Label Text="{Binding Source={x:Reference This},Path=invalidMessage}" 
+            <Entry  VerticalOptions="CenterAndExpand" Placeholder="{Binding Source={x:Reference This},Path=PlaceHolder}" IsPassword="{Binding Source={x:Reference This},Path=isEntryPassword}" TextChanged="Entry_TextChanged" Unfocused="Entry_Unfocused" />
+            <Label VerticalOptions="Center" Text="{Binding Source={x:Reference This},Path=invalidMessage}" 
                    IsVisible="{Binding Source={x:Reference This},Path=isErrorVisible}">
                 <Label.Style>
                     <Style TargetType="Label" >

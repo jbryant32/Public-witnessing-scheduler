@@ -15,7 +15,9 @@
             <ListView BackgroundColor="White" HasUnevenRows="True" ItemTapped="ListView_ItemTapped" SelectionMode="None" ItemsSource="{Binding Bookings}"  >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <customControls:BookingItemViewCellTemplate />
+                        <ViewCell>
+                            <customControls:BookingViewCellTemplate Email="{Binding Email}" LocationName="{Binding LocationName}" ScheduledStartTime="{Binding ScheduledStartTime}"   Padding="5,10,5,10"/>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

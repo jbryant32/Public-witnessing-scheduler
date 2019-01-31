@@ -24,8 +24,10 @@
         <customControls:BaseContentViewTemplate isActive="{Binding Source={x:Reference This},Path=ViewModel.isActive}">
             <ListView BackgroundColor="White" HasUnevenRows="True" ItemTapped="ListView_ItemTapped"  SelectionMode="None" ItemsSource="{Binding Source={x:Reference This},Path=ViewModel.Bookings}">
                 <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <customControls:BookingItemViewCellTemplate />
+                    <DataTemplate >
+                        <ViewCell>
+                            <customControls:BookingViewCellTemplate  Email="{Binding Email}" LocationName="{Binding LocationName}" ScheduledStartTime="{Binding ScheduledStartTime}"  Padding="5,10,5,10"/>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

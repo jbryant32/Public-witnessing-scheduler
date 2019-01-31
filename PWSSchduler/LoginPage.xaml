@@ -5,23 +5,45 @@
              xmlns:validators="clr-namespace:FormValidation.Validators;assembly=FormValidation"
              xmlns:triggers ="clr-namespace:PWSSchduler.EventTriggers"
              xmlns:customControls ="clr-namespace:PWSSchduler.CustomControls"
+             xmlns:ext="clr-namespace:PWSSchduler.Extentions"
              x:Class="PWSSchduler.LoginPage"
              Title="Login"
+             x:Name="This"
              BackgroundColor="White"
              >
-    <ContentPage.BindingContext>
-        <viewModel:LoginViewModel x:Name="ViewModel"/>
-    </ContentPage.BindingContext>
+
 
     <ContentPage.Content>
+
         <StackLayout Orientation="Vertical">
-            <StackLayout Orientation="Horizontal">
-                <Label Text="E" BackgroundColor="{Binding Source={x:StaticResource ColorBlue}}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
-                <customControls:EntryAuthView isEmail="True" invalidMessage="This is a fail sir"/>
+            <StackLayout VerticalOptions="FillAndExpand" Padding="0,20,0,0"  HorizontalOptions="CenterAndExpand">
+                <Label Text="Public Witnessing Scheduler" VerticalOptions="StartAndExpand"  FontAttributes="Bold"  TextColor="#333333" >
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Setter Property="FontSize" Value="30"/>
+                            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                        </Style>
+                    </Label.Style>
+                </Label>
             </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="P" BackgroundColor="{Binding Source={x:StaticResource ColorBlue}}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
-                <customControls:EntryAuthView isEntryPassword="True" invalidMessage="This is a fail sir"/>
+            <StackLayout VerticalOptions="End" Margin="0,15,0,15"  >
+                <StackLayout  Padding="10,0,10,10" Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="Fill">
+                    <StackLayout   BackgroundColor="{Binding Source={x:StaticResource ColorBlue}}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="50" HeightRequest="50" >
+                        <Image VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25"  Source="{Binding Source={StaticResource EmailIcon}}" />
+                    </StackLayout>
+
+                    <customControls:EntryAuthView x:Name="EmailEntry" isEmail="True" invalidMessage="EMAIL INVALID"   HorizontalOptions="FillAndExpand" HeightRequest="50"    />
+                </StackLayout>
+                <StackLayout Padding="10,0,10,10" VerticalOptions="EndAndExpand" HorizontalOptions="Fill"  Orientation="Horizontal">
+                    <StackLayout   BackgroundColor="{Binding Source={x:StaticResource ColorBlue}}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="50" HeightRequest="50" >
+                        <Image VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25"  Source="{Binding Source={StaticResource KeyIcon}}" />
+                    </StackLayout>
+                    <customControls:EntryAuthView x:Name="PasswordEntry" HorizontalOptions="FillAndExpand"    HeightRequest="50"  isEntryPassword="True" invalidMessage="PASSWORD INVALID"/>
+                </StackLayout>
+
+            </StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand" Padding="10,0,10,0" >
+                <Button x:Name="LoginButton" Clicked="LoginButton_Clicked" Text="LOGIN" FontSize="{ext:FontSizesExtention SizeRequested=Standard}" WidthRequest="80"  HeightRequest="50" TextColor="White"   BackgroundColor="{Binding Source={x:StaticResource ColorBlue}}"></Button>
             </StackLayout>
         </StackLayout>
 

@@ -8,27 +8,31 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using DataAccessLayer.Context;
+using PWSSchduler.ViewModels;
 
 namespace PWSSchduler.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class UserDataCheckPage : ContentPage
-	{
-		public UserDataCheckPage ()
-		{
-			InitializeComponent ();
-		}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class UserDataCheckPage : ContentPage
+    {
+        UserDataCheckViewModel _ViewModel = new UserDataCheckViewModel();
+        public UserDataCheckViewModel ViewModel => _ViewModel;
+        public UserDataCheckPage()
+        {
+            InitializeComponent();
+        }
+        public UserDataCheckPage(string Email, string Password)
+        {
+            this.ViewModel.SetUserEmailPassword(Email, Password);
+            InitializeComponent();
+        }
         protected async override void OnAppearing()
         {
-            //DataStore.OpenDBConnection();
-            //await DataStore.CreateLocalStore();
-            //await DataStore.SetUsersData();
-            //await DataStore.GetLocalBookings();
-            await Task.Run(() => { Thread.Sleep(1000); });
-            Application.Current.MainPage =  new MainPage();
-
+            Application.Current.MainPage = new MainPage();
+            await this.ViewModel.SetUserLocalStorageData();
             base.OnAppearing();
         }
-    
+
     }
 }

@@ -17,31 +17,44 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <customControls:HomeViewTemplate 
-            OpenAlertViewPageCommand="{Binding Source={x:Reference This},Path=ViewModel.CommandTappedBell}"
-            CurrentDate="{Binding Source={x:Reference This},Path=ViewModel.CurrentDateTime}" 
-            TotalAlerts="{Binding Source={x:Reference This},Path=ViewModel.Alerts.Count}" >
-            <ScrollView HorizontalOptions="Fill" Padding="10">
-                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Fill" >
-                    <StackLayout  Orientation="Vertical" HorizontalOptions="Fill" Margin="0,0,0,20">
-                        <Label HorizontalTextAlignment="Center" Text="Public Witnessing Scheduler" LineBreakMode="WordWrap" FontSize="32" TextColor="Gray"></Label>
-                        <BoxView HorizontalOptions="Fill" BackgroundColor="Gray" HeightRequest="1" ></BoxView>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  HeightRequest="125" Margin="0,0,0,20">
-                        <customControls:TileButtonTemplated IconString="&#xf185;" ButtonTitle="Today" 
+        <StackLayout  HorizontalOptions="Fill" VerticalOptions="Fill" >
+
+            <StackLayout  Padding="20,0,20,0" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" >
+
+                <StackLayout  Orientation="Horizontal" HorizontalOptions="Fill"  VerticalOptions="CenterAndExpand">
+                    <customControls:TileButtonTemplated HorizontalOptions="StartAndExpand" IconString="{Binding Source={StaticResource ClockIcon}}" ButtonTitle="Today" 
                                                             ButtonClicked="{Binding Source={x:Reference This},Path=ViewModel.CommandOpenToday}"/>
-                        <customControls:TileButtonTemplated IconString="&#xf017;" 
+                    <customControls:TileButtonTemplated HorizontalOptions="EndAndExpand" IconString="{Binding Source={StaticResource PendingIcon}}" 
                                                             ButtonTitle="Pending" 
                                                             ButtonClicked="{Binding Source={x:Reference This},Path=ViewModel.CommandOpenPending}"/>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  HeightRequest="125" Margin="0,0,0,20">
-                        <customControls:TileButtonTemplated IconString="&#xf274;" ButtonTitle="Scheduled" 
-                                                            ButtonClicked="{Binding Source={x:Reference This},Path=ViewModel.CommandOpenScheduled}"/>
-                        <customControls:TileButtonTemplated IconString="&#xf2b6;" ButtonTitle="Sending" 
-                                                            ButtonClicked="{Binding Source={x:Reference This},Path=ViewModel.CommandOpenSendRequest}"/>
-                    </StackLayout>
                 </StackLayout>
-            </ScrollView>
-        </customControls:HomeViewTemplate>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand"    >
+                    <customControls:TileButtonTemplated HorizontalOptions="StartAndExpand" IconString="{Binding Source={StaticResource CalendarIcon}}" 
+ ButtonTitle="Scheduled" 
+                                                            ButtonClicked="{Binding Source={x:Reference This},Path=ViewModel.CommandOpenScheduled}"/>
+                    <customControls:TileButtonTemplated HorizontalOptions="EndAndExpand" IconString="{Binding Source={StaticResource EmailIcon}}" 
+ ButtonTitle="Sending" 
+                                                            ButtonClicked="{Binding Source={x:Reference This},Path=ViewModel.CommandOpenSendRequest}"/>
+ 
+                </StackLayout>
+                <StackLayout>
+                    <customControls:TileButtonTemplated HorizontalOptions="FillAndExpand" 
+                                                        IconString="{Binding Source={StaticResource EmailIcon}}" 
+                                                        ButtonTitle="Appointment Manager"                                                            
+                                                        ButtonClicked="{Binding Source={Reference This},Path=ViewModel.CommandOpenAppointmentManager}"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Padding="10"  HorizontalOptions="Fill" VerticalOptions="EndAndExpand" BackgroundColor="{Binding Source={StaticResource ColorBlue}}">
+                <Label  Text="JANURARY 13">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Setter Property="TextColor" Value="{Binding Source={StaticResource ColorWhite }}"/>
+                            <Setter Property="FontSize" Value="22"/>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

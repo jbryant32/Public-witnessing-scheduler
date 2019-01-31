@@ -9,10 +9,9 @@ namespace PWSSchduler
     {
         public App()
         {
-           
+  
             InitializeComponent();
-
-            MainPage = new LoginPage();
+             MainPage = new LoginPage();
         }
 
         protected override void OnStart()

@@ -25,15 +25,24 @@ namespace PWSSchduler.ViewModels
         #endregion
         #region Delegates
         Command _CommandOpenToday;
-        public Command CommandOpenToday { get => _CommandOpenToday ?? new Command(OnTodayButtonClicked); set => _CommandOpenToday = value; }
+        public Command CommandOpenToday { get => _CommandOpenToday ?? (_CommandOpenToday = new Command(OnTodayButtonClicked)); set => _CommandOpenToday = value; }
         Command _CommandOpenPending;
-        public Command CommandOpenPending { get => _CommandOpenPending ?? new Command(OnPendingButtonClicked); set => _CommandOpenPending = value; }
+        public Command CommandOpenPending { get => _CommandOpenPending ?? (_CommandOpenPending = new Command(OnPendingButtonClicked)); set => _CommandOpenPending = value; }
         Command _CommandOpenScheduled;
-        public Command CommandOpenScheduled { get => _CommandOpenScheduled ?? new Command(OnScheduledButtonClicked); set => _CommandOpenScheduled = value; }
-
+        public Command CommandOpenScheduled { get => _CommandOpenScheduled ?? (_CommandOpenScheduled = new Command(OnScheduledButtonClicked)); set => _CommandOpenScheduled = value; }
+        Command _CommandOpenAppointmentManager;
+        public Command CommandOpenAppointmentManager
+        {
+            get => _CommandOpenAppointmentManager ?? (_CommandOpenAppointmentManager = new Command(OnAppointmentManagerButtonClicked));
+            set { _CommandOpenAppointmentManager = value; }
+        }
 
         Command _CommandOpenSendRequest;
-        public Command CommandOpenSendRequest { get => _CommandOpenSendRequest ?? new Command(OnSendingButtonClicked); set => _CommandOpenSendRequest = value; }
+        public Command CommandOpenSendRequest
+        {
+            get => _CommandOpenSendRequest ?? (_CommandOpenSendRequest = new Command(OnSendingButtonClicked));
+            set => _CommandOpenSendRequest = value;
+        }
         public Command CommandTappedBell
         { get => _CommandTappedBell ?? new Command(OnTappedBellIcon); set => _CommandTappedBell = value; }
         Command _CommandTappedBell;
@@ -82,6 +91,11 @@ namespace PWSSchduler.ViewModels
         {
             var Main = Application.Current.MainPage as MainPage;
             Main.Navigation.PushModalAsync(new AlertsViewPage());
+        }
+        public void OnAppointmentManagerButtonClicked()
+        {
+            var Main = Application.Current.MainPage as MainPage;
+            Main.Detail.Navigation.PushAsync((Page)Activator.CreateInstance<AppoinmentManagerView>());
         }
     }
 }

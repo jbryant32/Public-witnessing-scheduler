@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PWSSchduler.Views.CreateNewAppointmentView"
+             xmlns:customControls ="clr-namespace:PWSSchduler.CustomControls"
+             x:Name="This"
+             >
+    
+  <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Contact Info" FontSize="24" Margin="20" HorizontalOptions="Fill"/>
+            <StackLayout>
+                
+                <Grid RowSpacing="20" Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout BackgroundColor="{Binding Source={StaticResource ColorBlue}}" Padding="5"  Grid.Column="0" Grid.Row="0">
+                        <Image HorizontalOptions="Center"  Source="{Binding Source={StaticResource EmailIcon}}"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" Grid.Row="0" >
+                        <Entry  Placeholder="Publisher's Name"/>
+                    </StackLayout>
+                    <StackLayout BackgroundColor="{Binding Source={StaticResource ColorBlue}}" Padding="5"  Grid.Column="0" Grid.Row="1">
+                        <Image HorizontalOptions="Center"  Source="{Binding Source={StaticResource EmailIcon}}"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" Grid.Row="1" >
+                        <Entry  Placeholder="Publisher's Email"/>
+                    </StackLayout>
+                </Grid>
+                
+            </StackLayout>
+<!--Table Location-->
+            <Label Text="Cart Location" FontSize="24" Margin="20" HorizontalOptions="Fill"/>
+            <StackLayout>
+
+                <Grid RowSpacing="20" Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="40"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout BackgroundColor="{Binding Source={StaticResource ColorBlue}}" Padding="5"  Grid.Column="0" Grid.Row="0">
+                        <Image HorizontalOptions="Center"  Source="{Binding Source={StaticResource EmailIcon}}"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" Grid.Row="0" >
+                        <Entry  Placeholder="Cart Location"/>
+                    </StackLayout>
+                    <StackLayout BackgroundColor="{Binding Source={StaticResource ColorBlue}}" Padding="5"  Grid.Column="0" Grid.Row="1">
+                        <Image HorizontalOptions="Center"  Source="{Binding Source={StaticResource EmailIcon}}"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" Grid.Row="1" >
+                        <!--<Entry  Placeholder="Publisher's Email"/>-->
+                        <Picker ItemsSource="{Binding Source={Reference This},Path=ViewModel.Locations}" SelectedIndex="0"  >
+                            
+                        </Picker>
+                    </StackLayout>
+                </Grid>
+
+            </StackLayout>
+        </StackLayout>
+      
+      
+      
+  </ContentPage.Content>
+</ContentPage>

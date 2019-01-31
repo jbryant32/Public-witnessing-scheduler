@@ -43,11 +43,11 @@
                                         <Setter Property="FontSize" Value="32"/>
                                     </Style>
                                 </Label.Style>
-                                <Label.FontFamily>
+                                <!--<Label.FontFamily>
                                     <OnPlatform x:TypeArguments="x:String"
                                             Android="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" 
                                              iOS="Font Awesome 5 Free"/>
-                                </Label.FontFamily>
+                                </Label.FontFamily>-->
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" 
                                                           Command="{Binding Source={x:Reference This},Path=OpenAlertViewPageCommand}"/>

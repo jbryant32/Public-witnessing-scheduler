@@ -9,7 +9,15 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key='ColorBlue'>#59b3f4</Color>
+            <Color x:Key='ColorWhite'>White</Color>
+            <x:String x:Key="EmailIcon">email_white.png</x:String>
+            <x:String x:Key="ClockIcon">clock_white.png</x:String>
+            <x:String x:Key="KeyIcon">key_white.png</x:String>
+            <x:String x:Key="PendingIcon">time_left_white.png</x:String>
+            <x:String x:Key="CalendarIcon">calendar_white.png</x:String>
+
         </ResourceDictionary>
+        
         <ResourceDictionary>
             <Style  TargetType="Label" x:Key="LabelHeaderIcon">
                 <Setter Property="TextColor" Value="Gray"></Setter>
@@ -38,6 +46,7 @@
         </ResourceDictionary>
         <ResourceDictionary x:Key="IconsResource">
             <customExtentions:FontAwesomeIconsExtention x:Key="FontIcon"/>
+            <customExtentions:FontSizesExtention x:Key="FontSize"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

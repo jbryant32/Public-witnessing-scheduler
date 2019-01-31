@@ -16,8 +16,7 @@ namespace PWSSchduler
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
     {
-        
-       
+        LoginViewModel ViewModel { get; set; } = new LoginViewModel();
 
         public LoginPage ()
 		{
@@ -26,19 +25,12 @@ namespace PWSSchduler
       
 		}
 
-        private void EntryPassword_Unfocused(object sender, FocusEventArgs e)
+        private void LoginButton_Clicked(object sender, EventArgs e)
         {
-            ViewModel.EntryPassword_Unfocused(sender, e);
+            if(EmailEntry.isEntryValid && PasswordEntry.isEntryValid)
+            {
+                ViewModel.LoginMeIn(EmailEntry.EntryValue, PasswordEntry.EntryValue);
+            }
         }
-
-        private void EntryEmail_Unfocused(object sender, FocusEventArgs e)
-        {
-            ViewModel.EntryEmail_Unfocused(sender, e);
-
-        }
-
-       
-
-       
     }
 }

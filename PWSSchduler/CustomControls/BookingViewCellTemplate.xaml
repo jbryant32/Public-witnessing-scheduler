@@ -15,20 +15,23 @@
                 </Grid.RowDefinitions>
                 <StackLayout Grid.Column="0" x:Name="ParentView" VerticalOptions="Center" 
                          HorizontalOptions="Center"   WidthRequest="40" HeightRequest="40" >
-                    <RelativeLayout  >
-                        <BoxView x:Name="Circle"  
-                             RelativeLayout.YConstraint="{ConstraintExpression Property=Height,Factor=0,                Type=RelativeToParent}"
-                                        RelativeLayout.XConstraint="{ConstraintExpression Property=Width,Factor=0,                  Type=RelativeToParent}"   
-                                        RelativeLayout.HeightConstraint="{ConstraintExpression Property=Height,Factor=1,                Type=RelativeToParent}"
-                                        RelativeLayout.WidthConstraint="{ConstraintExpression Property=Width,Factor=1,                  Type=RelativeToParent}"   CornerRadius="100"                     BackgroundColor="Gray" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <BoxView Grid.Column="0" Grid.Row="0" HorizontalOptions="Fill" VerticalOptions="Fill">
+                            <BoxView.Style>
+                                <Style TargetType="BoxView">
+                                    <Setter Property="BackgroundColor" Value="Gray"/>
+                                    <Setter Property="CornerRadius" Value="100"/>
+                                </Style>
+                            </BoxView.Style>
                         </BoxView>
-                        <Label   Text="B" TextColor="White" FontSize="24" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" 
-                                 RelativeLayout.HeightConstraint="{ConstraintExpression Property=Height,ElementName=Circle,Factor=1}"
-                                        RelativeLayout.WidthConstraint="{ConstraintExpression Property=Width,ElementName=Circle,Factor=1}"
-                                        RelativeLayout.YConstraint="{ConstraintExpression Property=Height,Factor=0,                Type=RelativeToView,ElementName=Circle}"
-                                        RelativeLayout.XConstraint="{ConstraintExpression Property=Width,Factor=0,                 Type=RelativeToView,ElementName=Circle}">
-                        </Label>
-                    </RelativeLayout>
+                        <Label Grid.Column="0" Grid.Row="0" Text="B" TextColor="White" FontSize="24" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    </Grid>
                 </StackLayout>
                 <StackLayout Grid.Column="1" Orientation="Horizontal"  >
                     <Grid   VerticalOptions="Fill">
